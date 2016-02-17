@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd "
+>
+	
+	<named-query name="PublicAreaType.findByName">
+		<query>
+			select p from PublicAreaType p where p.publicAreaTypeDescription = :publicAreaTypeDescription
+		</query>
+	</named-query>
+
+	<named-query name="PublicAreaType.findAll">
+		<query>
+			select p from PublicAreaType p
+		</query>
+	</named-query>
+
+	<named-query name="PublicAreaType.deleteById">
+		<query>
+			delete from PublicAreaType where idPublicAreaType = :idPublicAreaType
+		</query>
+	</named-query>
+
+	<named-query name="PublicAreaType.findPublicAreaTypeById">
+		<query>
+			select p from PublicAreaType p where p.idPublicAreaType = :idPublicAreaType
+		</query>
+	</named-query>
+</entity-mappings>
