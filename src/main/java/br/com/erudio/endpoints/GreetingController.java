@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.erudio.Greeting;
-import br.com.erudio.data.User;
+import br.com.erudio.model.User;
 
 @RestController
 public class GreetingController {

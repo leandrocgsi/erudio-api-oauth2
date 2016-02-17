@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.erudio.data.User;
-import br.com.erudio.data.UserRepository;
+import br.com.erudio.entrypoint.v1.UserRepository;
+import br.com.erudio.model.User;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

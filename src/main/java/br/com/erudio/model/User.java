@@ -1,4 +1,4 @@
-package br.com.erudio.data;
+package br.com.erudio.model;
 
 import java.util.HashSet;
 import java.util.Set;
