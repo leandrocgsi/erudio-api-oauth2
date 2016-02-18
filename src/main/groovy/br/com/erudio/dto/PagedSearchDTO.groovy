@@ -8,7 +8,7 @@ import javax.persistence.Query
 import org.apache.commons.lang.StringUtils
 
 
-class PagedSearchDTO<T extends Serializable> implements Serializable {
+public class PagedSearchDTO<T extends Serializable> implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

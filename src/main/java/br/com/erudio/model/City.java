@@ -28,7 +28,7 @@ public class City /*extends ResourceSupport*/ implements Serializable{
     private String name;
     
     @JsonCreator
-    City() {}
+    public City() {}
 
 	public Integer getIdCity() {
 		return idCity;
