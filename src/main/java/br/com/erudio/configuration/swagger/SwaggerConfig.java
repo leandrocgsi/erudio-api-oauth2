@@ -1,28 +1,29 @@
 package br.com.erudio.configuration.swagger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
+import com.mangofactory.swagger.models.dto.ApiInfo;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
-import com.wordnik.swagger.model.ApiInfo;
 
 @Configuration
+@EnableAutoConfiguration
 @EnableSwagger
 public class SwaggerConfig {
 
+	@Autowired
 	private SpringSwaggerConfig springSwaggerConfig;
 
-	@Autowired
-	public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig) {
-		this.springSwaggerConfig = springSwaggerConfig;
-	}
-
 	@Bean
-	public SwaggerSpringMvcPlugin customImplementation() {
-		return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo()).includePatterns("/api/.*");
+	public SwaggerSpringMvcPlugin groupOnePlugin() {
+		return new SwaggerSpringMvcPlugin(springSwaggerConfig).
+				apiInfo(apiInfo()).
+				includePatterns("/api/.*").
+				swaggerGroup("erudio");
 	}
 
 	private ApiInfo apiInfo() {

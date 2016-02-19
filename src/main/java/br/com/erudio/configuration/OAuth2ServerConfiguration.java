@@ -40,7 +40,8 @@ public class OAuth2ServerConfiguration {
 				.authorizeRequests()
 					.antMatchers("/users").hasRole("ADMIN")
 					.antMatchers("/greeting").authenticated()
-					.antMatchers("/api/v1/**").hasRole("ADMIN");
+					.antMatchers("/api/v1/**").hasRole("ADMIN")
+					.antMatchers("/api-docs/**").permitAll();
 		}
 
 	}
