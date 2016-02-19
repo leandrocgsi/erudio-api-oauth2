@@ -15,7 +15,7 @@ The following Spring projects are used in this sample app:
 * http://projects.spring.io/spring-security-oauth/[Spring Security OAuth]
 * http://projects.spring.io/spring-data-jpa/[Spring Data JPA]
 * http://www.groovy-lang.org/[Groovy] (Coming soon)
-* http://swagger.io/[Swagger] (see more http://jakubstas.com/spring-jersey-swagger-create-documentation/#.VseNCvkrJD- [here] http://jakubstas.com/spring-jersey-swagger-exposing-documentation/#.VseNBvkrJD9 [here])
+* http://swagger.io/[Swagger] (see more http://jakubstas.com/spring-jersey-swagger-create-documentation/#.VseNCvkrJD-[here] http://jakubstas.com/spring-jersey-swagger-exposing-documentation/#.VseNBvkrJD9[here])
 
 
 == Build and Run
