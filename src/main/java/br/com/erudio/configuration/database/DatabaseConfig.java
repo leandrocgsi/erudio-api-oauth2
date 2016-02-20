@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -18,14 +19,33 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
+	
+    @Value("${dataSource.driverClassName}")
+    private String driver;
+    @Value("${dataSource.url}")
+    private String url;
+    @Value("${dataSource.username}")
+    private String username;
+    @Value("${dataSource.password}")
+    private String password;
+    @Value("${hibernate.dialect}")
+    private String dialect;
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String hbm2ddlAuto;
+    @Value("${hibernate.show_sql}")
+    private String show_sql;
+    @Value("${hibernate.format_sql}")
+    private String format_sql;
+    @Value("${entitymanager.packagesToScan}")
+    private String entitymanagerPackagesToScan;
 
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty("db.driver"));
-		dataSource.setUrl(env.getProperty("db.url"));
-		dataSource.setUsername(env.getProperty("db.username"));
-		dataSource.setPassword(env.getProperty("db.password"));
+		dataSource.setDriverClassName(driver);
+		dataSource.setUrl(url);
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
 		return dataSource;
 	}
 
@@ -35,7 +55,7 @@ public class DatabaseConfig {
 
 		entityManagerFactoryBean.setDataSource(dataSource);
 
-		entityManagerFactoryBean.setPackagesToScan("br.com.erudio");
+		entityManagerFactoryBean.setPackagesToScan(entitymanagerPackagesToScan);
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		entityManagerFactoryBean.setMappingResources(
 				//"namedQueries/Address.xml",
@@ -45,12 +65,13 @@ public class DatabaseConfig {
 				"namedQueries/PublicAreaType.xml"*/
 				);
 
-		Properties additionalProperties = new Properties();
-		additionalProperties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-		additionalProperties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-		additionalProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-		entityManagerFactoryBean.setJpaProperties(additionalProperties);
-
+		Properties jpaProperties = new Properties();
+		jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
+		jpaProperties.put(org.hibernate.cfg.Environment.SHOW_SQL, show_sql);
+		jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, hbm2ddlAuto);
+		jpaProperties.put(org.hibernate.cfg.Environment.FORMAT_SQL, format_sql);
+		entityManagerFactoryBean.setJpaProperties(jpaProperties);
+		
 		return entityManagerFactoryBean;
 	}
 	

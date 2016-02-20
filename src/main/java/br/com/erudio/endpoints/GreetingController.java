@@ -6,7 +6,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erudio.Greeting;
+import br.com.erudio.model.Greeting;
 import br.com.erudio.model.User;
 
 @RestController

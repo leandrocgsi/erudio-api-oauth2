@@ -48,9 +48,7 @@ public class AppErrorController implements ErrorController {
 
 	private boolean getTraceParameter(HttpServletRequest request) {
 		String parameter = request.getParameter("trace");
-		if (parameter == null) {
-			return false;
-		}
+		if (parameter == null) return false;
 		return !"false".equals(parameter.toLowerCase());
 	}
 
@@ -65,6 +63,7 @@ public class AppErrorController implements ErrorController {
 			try {
 				return HttpStatus.valueOf(statusCode);
 			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
 		}
 		return HttpStatus.INTERNAL_SERVER_ERROR;
