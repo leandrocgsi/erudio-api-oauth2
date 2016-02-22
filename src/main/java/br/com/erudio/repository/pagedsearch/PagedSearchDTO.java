@@ -103,15 +103,15 @@ public class PagedSearchDTO<T extends Serializable> implements Serializable {
 	}
 	
 	public String getOrderBy(String alias) {
-		return " order by " + "alias" + "." + "sortFields" + " " + "sortDirections";
+		return " order by " + alias + "." + "sortFields" + " " + "sortDirections";
 	}
 	
 	public String getParameters(String alias) {
-			String query = " where " + "";
+			String query = " where ";
 			for (Map.Entry<String, Object> entry : filters.entrySet()) {
 				if (!StringUtils.isEmpty(entry.getKey()) && !StringUtils.isEmpty(entry.getValue().toString())) {
 					String key = entry.getKey();
-					//query + "" +alias + "." + key + " = " + key + " and ";
+					query = query + alias + "." + key + " = " + key + " and ";
 				}
 			}
 			return query;
@@ -122,7 +122,7 @@ public class PagedSearchDTO<T extends Serializable> implements Serializable {
 				if (!StringUtils.isEmpty(entry.getKey()) && !StringUtils.isEmpty(entry.getValue().toString())) {
 					String key = entry.getKey();
 					String value = entry.getValue().toString();
-					query.setParameter("key", value);
+					query.setParameter(key, value);
 				}
 			}
 		}
