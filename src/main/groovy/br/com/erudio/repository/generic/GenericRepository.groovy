@@ -19,37 +19,36 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     protected EntityManager entityManager;
     private Class<T> clazz;
 	
-    public GenericRepository() { }
+	GenericRepository() { }
 
-	public GenericRepository(Class<T> clazz) {
+	GenericRepository(Class<T> clazz) {
         this.clazz = clazz;
     }
     
     @Override
     @Transactional
-    public T save(T entity) {
+    T save(T entity) {
     	try {
 			entityManager.merge(entity);
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace()
 		}
 		return entity;
     }
 
     @Override
     @Transactional
-    public T update(T entity) {
+    T update(T entity) {
     	try {
 			return entityManager.merge(entity);
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace()
 		}
-		return entity;
     }
 
     @Override
     @Transactional
-    public Boolean delete(T entity) {
+    Boolean delete(T entity) {
 		try {
 			entityManager.remove(entity);
 		} catch (Exception ex) {
@@ -60,25 +59,23 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
 
     @Override
     @Transactional
-    public T merge(T entity) {
+    T merge(T entity) {
     	try {
 			return entityManager.merge(entity);
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace()
 		}
-		return entity;
     }
 
     @Override
     @Transactional
-    public T getEntity(Serializable id) {
+    T getEntity(Serializable id) {
         try {
 	        T entity = (T)entityManager.getReference(clazz, id);
 			return entity;
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace()
 		}
-		return null;
     }
 
 //    @Override
@@ -88,14 +85,13 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
 //    }
         
 	@Override
-	public T getEntityByHQLQuery(String stringQuery) {
+    T getEntityByHQLQuery(String stringQuery) {
         try {
 	        Query query = entityManager.createQuery(stringQuery);        
 			return (T) query.getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace()
 		}
-		return null;
     }
 
 //    @Override

@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public interface IGenericRepository<T> {
     
-    T save (T entity);
-    T update (T entity);
-    Boolean delete (T entity);
-    T merge (T entity);
-    T getEntity(Serializable id);
+    T save (T entity)
+    T update (T entity)
+    Boolean delete (T entity)
+    T merge (T entity)
+    T getEntity(Serializable id)
 //    T getEntityByDetachedCriteria(DetachedCriteria criteria)
-    T getEntityByHQLQuery(String stringQuery);
+    T getEntityByHQLQuery(String stringQuery)
 //    List<T> getEntities()
 //    List<T> getListByDetachedCriteria(DetachedCriteria criteria)
 
