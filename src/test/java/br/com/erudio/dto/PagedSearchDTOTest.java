@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.erudio.repository.pagedsearch.PagedSearchDTO;
+import br.com.erudio.dto.PagedSearchDTO;
 import br.com.erudio.model.Person;
 
 public class PagedSearchDTOTest {
@@ -25,7 +25,7 @@ public class PagedSearchDTOTest {
 	@Test
 	public void getBaseSelectTest() {
 		String baseSelect = "select p from Person p ";
-//		assertEquals(dto.getBaseSelect("p", "Person"), baseSelect);
+		assertEquals(dto.getBaseSelect("p", "Person"), baseSelect);
 	}
 	
 	@Test
@@ -36,13 +36,13 @@ public class PagedSearchDTOTest {
 	@Test
 	public void getBaseSelectCount() {
 		String baseSelect = "select count(*) from Person p ";
-//		assertEquals(dto.getBaseSelectCount("p", "Person"), baseSelect);
+		assertEquals(dto.getBaseSelectCount("p", "Person"), baseSelect);
 	}
 	
 	@Test
 	public void getWhereAndParametersTest() {
 		String whereClause = " where p.phone = :phone and p.name = :name and p.email = :email and 1 = 1 ";
-//		assertEquals(whereClause, dto.getWhereAndParameters("p"));
+		assertEquals(whereClause, dto.getWhereAndParameters("p"));
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class PagedSearchDTOTest {
 		filters.put("", "LEANDRO");
 		dto.setFilters(filters);
 		String whereClause = " where p.phone = :phone and p.name = :name and p.email = :email and 1 = 1 ";
-//		assertEquals(dto.getWhereAndParameters("p"), whereClause);
+		assertEquals(dto.getWhereAndParameters("p"), whereClause);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class PagedSearchDTOTest {
 		filters.put("name", "");
 		dto.setFilters(filters);
 		String whereClause = " where 1 = 1 ";
-//		assertEquals(dto.getWhereAndParameters("p"), whereClause);
+		assertEquals(dto.getWhereAndParameters("p"), whereClause);
 	}
 	
 	@Test
@@ -70,7 +70,15 @@ public class PagedSearchDTOTest {
 				+ " p.name = :name and"
 				+ " p.email = :email and 1 = 1 "
 				+ " order by p.name asc";
-//		assertEquals(selectWithParameters, dto.getHQLQuery("p", "Person"));
+		assertEquals(selectWithParameters, dto.getHQLQuery("p", "Person"));
+	}
+	
+	@Test
+	public void getHQLQueryTestWithDTOFromJSON() {
+		String selectWithParameters = "select p from Person p"
+				+ "  where 1 = 1 "
+				+ " order by p.name asc";
+		assertEquals(selectWithParameters, mockDTOFromJSON().getHQLQuery("p", "Person"));
 	}
 	
 	@Test
@@ -98,6 +106,17 @@ public class PagedSearchDTOTest {
 	public void getCurrentPageNullTest() {
 		dto.setCurrentPage(null);
 		assertEquals(dto.getCurrentPage(), (Integer)0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public PagedSearchDTO<Person> mockDTOFromJSON(){
+		PagedSearchDTO<Person> dtoFromJSON = new PagedSearchDTO<>();
+		try {
+			dtoFromJSON = new ObjectMapper().readValue(PagedSearchDTOMock.PAGED_SEARCH_DTO_JSON, PagedSearchDTO.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return dtoFromJSON;
 	}
 	
 	public PagedSearchDTO<Person> mockDTO(){
