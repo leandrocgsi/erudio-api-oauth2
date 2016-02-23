@@ -5,7 +5,7 @@ image::https://travis-ci.org/royclarkson/spring-rest-service-oauth.svg[Build Sta
 This is a simple REST service that provides a single RESTful endpoint protected by OAuth 2. The REST service is based on the https://github.com/royclarkson/spring-rest-service-oauth[Spring REST Service OAuth - by Roy Clarkson] and in another projects mine like https://github.com/leandrocgsi/erudio-api-with-groovy[Erudio API With Groovy], https://github.com/leandrocgsi/semeru_jsf_groovy_maven[Semeru JSF Groovy Maven] and https://github.com/leandrocgsi/erudio-client-ws-exporter[Erudio Client WS Exporter]. This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the https://github.com/spring-projects/spring-security-oauth/issues[Spring Security OAuth project].
 
 
-== Spring Projects
+== Open Source Used Projects
 
 The following Spring projects are used in this sample app:
 
@@ -15,8 +15,9 @@ The following Spring projects are used in this sample app:
 * http://projects.spring.io/spring-security-oauth/[Spring Security OAuth]
 * http://projects.spring.io/spring-data-jpa/[Spring Data JPA]
 * http://swagger.io/[Swagger] see more http://jakubstas.com/spring-jersey-swagger-create-documentation/[here] and http://jakubstas.com/spring-jersey-swagger-exposing-documentation/[here]
-* http://www.groovy-lang.org/[Groovy] (Coming soon)
+* http://www.groovy-lang.org/[Groovy]
 * http://orika-mapper.github.io/orika-docs/converters.html[Orika Mapper] (Coming soon)
+* http://hibernate.org/[Hibernate]
 
 
 == Build and Run
