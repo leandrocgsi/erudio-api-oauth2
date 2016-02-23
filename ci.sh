@@ -6,5 +6,5 @@ set -e
 ./gradlew clean build
 sudo rm -rf build
 
-mvn clean package
+mvn clean package -DskipTests
 sudo rm -rf target
