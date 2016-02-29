@@ -2,15 +2,13 @@ package br.com.erudio.orika.converter;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.erudio.orika.mocks.MockInputObject;
 import br.com.erudio.orika.objects.OutputObject;
-import junit.framework.Assert;
 
-@Ignore
 public class OrikaParserTest {
 
     MockInputObject inputObject;
