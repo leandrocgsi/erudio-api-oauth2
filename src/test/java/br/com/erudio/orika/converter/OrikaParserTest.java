@@ -11,7 +11,6 @@ import org.junit.Test;
 import br.com.erudio.orika.mocks.MockInputObject;
 import br.com.erudio.orika.objects.OutputObject;
 
-//@Ignore
 public class OrikaParserTest {
 
     MockInputObject inputObject;
