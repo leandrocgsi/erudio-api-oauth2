@@ -3,7 +3,7 @@ package br.com.erudio.orika.converter;
 import ma.glasnost.orika.MapperFactory
 import ma.glasnost.orika.impl.DefaultMapperFactory
 
-public class OrikaParser {
+class OrikaParser {
 
     private static final MapperFactory orikaMapper = new DefaultMapperFactory.Builder().build();
     
@@ -13,9 +13,7 @@ public class OrikaParser {
 
     static <O, D> List<D> parserListObjectInputToObjectOutput(List<O> originalObjects, Class<D> destinationObject) {
         List<D> destinationObjects = new ArrayList<D>();
-        for (Object originalObject : originalObjects) {
-            destinationObjects.add(parser(destinationObject, originalObject));
-        }
+        for (Object originalObject : originalObjects) destinationObjects.add(parser(destinationObject, originalObject));
         destinationObjects;
     }
 
