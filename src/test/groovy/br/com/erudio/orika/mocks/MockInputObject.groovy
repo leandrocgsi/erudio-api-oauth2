@@ -11,7 +11,7 @@ public class MockInputObject {
         inputObject.setName("Name Test");
         inputObject.setAge(21);
         inputObject.setAdress(mockAddress());
-        inputObject;
+        return inputObject;
     }
 
     List<InputObject> mockInputList() {
@@ -19,7 +19,7 @@ public class MockInputObject {
         for (int i = 0; i < 3; i++) {
             inputObjects.add(mockInput(i));
         }
-        inputObjects;
+        return inputObjects;
     }
 
     InputObject mockInput(Integer number) {
@@ -34,6 +34,6 @@ public class MockInputObject {
         address.setTown("Old City");
         address.setRoad("Road 01");
         address.setNumber(123);
-        address;
+        return address;
     }
 }

@@ -8,12 +8,4 @@ class InputObject implements Serializable {
     Integer age;
     
     InputAddress address;
-
-	public InputAddress getAddress() {
-		return address;
-	}
-
-	public void setAddress(InputAddress address) {
-		this.address = address;
-	}
 }

@@ -8,12 +8,4 @@ class OutputObject implements Serializable {
     Integer age;
     
     OutputAddress address;
-
-	public OutputAddress getAddress() {
-		return address;
-	}
-
-	public void setAddress(OutputAddress address) {
-		this.address = address;
-	}
 }
