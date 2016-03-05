@@ -18,7 +18,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class Reporter {
         
-    /*public File makeReport() throws Exception {
+    public File makeReport() throws Exception {
 	
     		InputStream inputStream = getClass().getResourceAsStream("template/test_jasper.jrxml");
             
@@ -33,5 +33,5 @@ public class Reporter {
             File pdf = File.createTempFile("output.", ".pdf");
             JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(pdf));
             return pdf;
-    }*/
+    }
 }
