@@ -1,12 +1,6 @@
 package br.com.erudio.service.reporter;
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.stereotype.Repository;
 
 import br.com.erudio.fakedata.DataBean;
 import br.com.erudio.fakedata.DataBeanMaker;
@@ -17,6 +11,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
+@Repository
 class Reporter {
         
     File makeReport() throws Exception {
