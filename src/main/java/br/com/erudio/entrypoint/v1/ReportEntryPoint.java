@@ -1,10 +1,12 @@
 package br.com.erudio.entrypoint.v1;
 
-import java.io.File;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,7 @@ import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
 
 import br.com.erudio.repository.interfaces.IReportRepository;
-
+import br.com.erudio.utils.FileUtils;
 
 @Controller
 @Secured("ROLE_USER")
@@ -29,13 +31,18 @@ public class ReportEntryPoint {
 	@Autowired
 	private IReportRepository reportRepository;
 	
+	FileUtils fileUtils = new FileUtils();
+
 	@RequestMapping(method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
+	@ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(value = "Building a report in PDF!", notes = "Building a report in PDF!")
-    @ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 500, message = "Houston we have a problem")})
-    public @ResponseBody ResponseEntity<Void> makeReport() throws Exception {
-		File file = reportRepository.makeReport();
-		//return Response.ok().entity(file).header("Content-Disposition", "attachment; filename=output.pdf").build();
-    	return ResponseEntity.status(HttpStatus.OK).build();
-    }
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 500, message = "Houston we have a problem") })
+	public @ResponseBody HttpEntity<byte[]> makeReport(HttpServletResponse response) throws Exception {
+		byte[] buffer = reportRepository.makeReport();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.parseMediaType("application/pdf"));
+		headers.setContentDispositionFormData("Content-Disposition", "output.pdf");
+	    headers.setContentLength(buffer.length);
+		return new HttpEntity<byte[]>(buffer, headers);
+	}
 }

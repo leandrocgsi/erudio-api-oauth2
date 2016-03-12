@@ -1,5 +1,7 @@
 package br.com.erudio.utils
 
+import java.io.File;
+
 class FileUtils {
 
 	def copyFile(String filePath, String fileDestinationPath){
@@ -23,6 +25,20 @@ class FileUtils {
 		fileDestinationStream << stream;
 		fileDestinationStream.close();
 	}
-	
-	
+
+	def getBytesFromFile(File file) {
+		InputStream inputStream = null;
+		byte[] buffer = null;
+		try {
+			inputStream = new FileInputStream(file);
+			buffer = new byte[inputStream.available()];
+			inputStream.read(buffer);
+			inputStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		buffer;
+	}
 }
