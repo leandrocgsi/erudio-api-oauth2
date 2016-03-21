@@ -7,7 +7,7 @@ This is a simple REST service that provides a single RESTful endpoint protected 
 
 == Open Source Used Projects
 
-The following Spring projects are used in this sample app:
+The following Open Source projects are used in this sample app:
 
 * http://projects.spring.io/spring-boot/[Spring Boot]
 * http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html[Spring MVC]
@@ -23,13 +23,7 @@ The following Spring projects are used in this sample app:
 
 == Build and Run
 
-Use Gradle:
-
-```sh
-./gradlew clean build bootRun
-```
-
-Or Maven:
+Use Maven:
 
 ```sh
 mvn clean package spring-boot:run
