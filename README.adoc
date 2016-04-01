@@ -1,7 +1,6 @@
 = Erudio API OAUTH2
 
-image::https://travis-ci.org/leandrocgsi/erudio-api-oauth2.svg?branch=master[Build Status, link=https://travis-ci.org/leandrocgsi/erudio-api-oauth2/]
-image::https://circleci.com/gh/leandrocgsi/erudio-api-oauth2.svg?&style=shield[Build Status, link=https://circleci.com/gh/leandrocgsi/erudio-api-oauth2/]
+image::https://travis-ci.org/leandrocgsi/erudio-api-oauth2.svg?branch=master[Build Status, link=https://travis-ci.org/leandrocgsi/erudio-api-oauth2/]image::https://circleci.com/gh/leandrocgsi/erudio-api-oauth2.svg?&style=shield[Build Status, link=https://circleci.com/gh/leandrocgsi/erudio-api-oauth2/]
 
 This is a simple REST service that provides a single RESTful endpoint protected by OAuth 2. The REST service is based on the https://github.com/royclarkson/spring-rest-service-oauth[Spring REST Service OAuth - by Roy Clarkson] and in another projects mine like https://github.com/leandrocgsi/erudio-api-with-groovy[Erudio API With Groovy], https://github.com/leandrocgsi/semeru_jsf_groovy_maven[Semeru JSF Groovy Maven] and https://github.com/leandrocgsi/erudio-client-ws-exporter[Erudio Client WS Exporter]. This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the https://github.com/spring-projects/spring-security-oauth/issues[Spring Security OAuth project].
 
