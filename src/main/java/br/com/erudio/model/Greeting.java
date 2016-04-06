@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import groovy.transform.EqualsAndHashCode;
@@ -12,7 +11,7 @@ import groovy.transform.EqualsAndHashCode;
 @Entity
 @Table(name = "greeting")
 @EqualsAndHashCode
-class Greeting implements java.io.Serializable {
+public class Greeting implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -23,16 +22,16 @@ class Greeting implements java.io.Serializable {
 	@Column
     final String content;
 
-    Greeting(Long id, String content) {
+	public Greeting(Long id, String content) {
         this.id = id;
         this.content = content;
     }
 
-    long getId() {
+    public long getId() {
         return id;
     }
 
-    String getContent() {
+    public String getContent() {
         return content;
     }
 }
