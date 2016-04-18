@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
+import br.com.erudio.dto.PagedSearchDTO;
 import br.com.erudio.model.Person;
 import br.com.erudio.repository.interfaces.IPersonRepository;
 
@@ -72,8 +73,8 @@ class PersonEntryPoint {
         return personRepository.findAll();
     }
 	
-//	@RequestMapping(value = "/pagedSearch", method = RequestMethod.POST)
-//    public @ResponseBody PagedSearchDTO<Person> buscaPaginada(@RequestBody PagedSearchDTO<Person> person) {
-//		return personRepository.pagedSearch(person);
-//    }
+	@RequestMapping(value = "/pagedSearch", method = RequestMethod.POST)
+    public @ResponseBody PagedSearchDTO<Person> buscaPaginada(@RequestBody PagedSearchDTO<Person> person) {
+		return personRepository.pagedSearch(person);
+    }
 }
