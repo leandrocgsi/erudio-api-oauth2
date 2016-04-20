@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import br.com.erudio.repository.interfaces.IGenderRepository;
 public class GenderRepository extends GenericRepository<Gender> implements IGenderRepository{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(GenderRepository.class);
 
 	public GenderRepository() {
 		super(Gender.class);
@@ -27,7 +30,7 @@ public class GenderRepository extends GenericRepository<Gender> implements IGend
 		try {
 			return entityManager.createQuery("select g from Gender g", Gender.class).getResultList();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new ArrayList<Gender>();
 		}
 	}

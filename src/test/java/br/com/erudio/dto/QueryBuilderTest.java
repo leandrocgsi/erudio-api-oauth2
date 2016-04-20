@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,8 @@ import br.com.erudio.model.Person;
 import br.com.erudio.repository.querybuilder.QueryBuilder;
 
 public class QueryBuilderTest {
+	
+	private Logger logger = Logger.getLogger(QueryBuilderTest.class);
     
     PagedSearchDTO<Person> dto = new PagedSearchDTO<Person>();
     QueryBuilder<Person> queryBuilder = new QueryBuilder<Person>();
@@ -93,7 +96,7 @@ public class QueryBuilderTest {
         try {
             dtoFromJSON = new ObjectMapper().readValue(PagedSearchDTOMock.PAGED_SEARCH_DTO_JSON, PagedSearchDTO.class);
         } catch (IOException e) {
-            e.printStackTrace();
+        	logger.error(e);
         }
         return dtoFromJSON;
     }

@@ -1,11 +1,14 @@
 package br.com.erudio.utils.email;
 
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 @Ignore
 public class EmailUtilsTest {
+	
+	private Logger logger = Logger.getLogger(EmailUtilsTest.class);
 	
 	EMailConfigs configs = new EMailConfigs();
 	EmailUtils emailUtils = new EmailUtils();
@@ -28,7 +31,7 @@ public class EmailUtilsTest {
 			emailUtils.sendSimpleMail(configs, "to@gmail.com");
 			emailUtils.sendEmailWithAttachment(configs, "to@gmail.com", "C://Users//LEANDRO//Desktop//teste.txt");
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 

@@ -7,6 +7,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.validation.ConstraintViolationException;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,8 @@ public class PersonRepository extends GenericRepository<Person> implements IPers
 
 	private static final long serialVersionUID = 1L;
 	
+	private Logger logger = Logger.getLogger(PersonRepository.class);
+	
 	@Autowired
 	private PersonPagedSearchRepository<Person> personPagedSearchRepository; 
 	
@@ -36,7 +39,7 @@ public class PersonRepository extends GenericRepository<Person> implements IPers
 			List<Person> persons = (List<Person>) entityManager.createNamedQuery("Person.findAllPersons", Person.class).getResultList();
 			return persons;
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new ArrayList<Person>();
 		}
 	}
@@ -46,7 +49,7 @@ public class PersonRepository extends GenericRepository<Person> implements IPers
 		try {
 			return entityManager.createNamedQuery("Person.findPersonByName", Person.class).setParameter("name", name).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new Person();
 		} 
 	}
@@ -56,7 +59,7 @@ public class PersonRepository extends GenericRepository<Person> implements IPers
 		try {
 			return entityManager.createNamedQuery("Person.findPersonById", Person.class).setParameter("idPerson", id).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new Person();
 		}
 	}
@@ -79,7 +82,7 @@ public class PersonRepository extends GenericRepository<Person> implements IPers
 		try {
 			return personPagedSearchRepository.getPagedSearch("p", "Person", person);
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return null;
 		}
     }

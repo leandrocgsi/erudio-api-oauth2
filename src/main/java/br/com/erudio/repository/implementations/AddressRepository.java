@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,8 @@ import br.com.erudio.repository.interfaces.IAddressRepository;
 public class AddressRepository extends GenericRepository<Address> implements IAddressRepository{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(AddressRepository.class);
 
 	public AddressRepository() {
 		super(Address.class);
@@ -31,7 +34,7 @@ public class AddressRepository extends GenericRepository<Address> implements IAd
 		try {
 			return mockAddress();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return null;
 		} 
 	}

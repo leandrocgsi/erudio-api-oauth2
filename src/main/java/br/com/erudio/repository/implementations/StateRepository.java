@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import br.com.erudio.repository.interfaces.IStateRepository;
 public class StateRepository extends GenericRepository<State> implements IStateRepository{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(StateRepository.class);
 
 	public StateRepository() {
 		super(State.class);
@@ -27,7 +30,7 @@ public class StateRepository extends GenericRepository<State> implements IStateR
 		try {
 			return entityManager.createQuery("select p from State p where p.idState = :idState", State.class).setParameter("idState", id).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new State();
 		}
 	}
@@ -37,7 +40,7 @@ public class StateRepository extends GenericRepository<State> implements IStateR
 		try {
 			return entityManager.createQuery("select p from State p where p.stateName like :stateName", State.class).setParameter("stateName", name).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new State();
 		} 
 	}
@@ -47,7 +50,7 @@ public class StateRepository extends GenericRepository<State> implements IStateR
 		try {
 			return entityManager.createQuery("select p from State p", State.class).getResultList();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new ArrayList<State>();
 		}
 	}

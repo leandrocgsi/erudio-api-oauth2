@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import br.com.erudio.repository.interfaces.IAddressTypeRepository;
 public class AddressTypeRepository extends GenericRepository<AddressType> implements IAddressTypeRepository{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(AddressTypeRepository.class);
 
 	public AddressTypeRepository() {
 		super(AddressType.class);
@@ -27,7 +30,7 @@ public class AddressTypeRepository extends GenericRepository<AddressType> implem
 		try {
 			return entityManager.createQuery("select p from AddressType p where p.idAddressType = :idAddressType", AddressType.class).setParameter("idAddressType", id).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new AddressType();
 		}
 	}
@@ -36,7 +39,7 @@ public class AddressTypeRepository extends GenericRepository<AddressType> implem
 		try {
 			return entityManager.createQuery("select p from AddressType p where p.description like :description", AddressType.class).setParameter("description", name).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new AddressType();
 		} 
 	}
@@ -45,7 +48,7 @@ public class AddressTypeRepository extends GenericRepository<AddressType> implem
 		try {
 			return entityManager.createQuery("select p from AddressType p", AddressType.class).getResultList();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new ArrayList<AddressType>();
 		}
 	}

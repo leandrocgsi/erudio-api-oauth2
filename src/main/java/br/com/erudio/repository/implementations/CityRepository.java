@@ -6,6 +6,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.validation.ConstraintViolationException;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,8 @@ import br.com.erudio.repository.interfaces.ICityRepository;
 public class CityRepository extends GenericRepository<City> implements ICityRepository{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(CityRepository.class);
 
 	public CityRepository() {
 		super(City.class);
@@ -41,7 +44,7 @@ public class CityRepository extends GenericRepository<City> implements ICityRepo
 		try {
 			return entityManager.createNamedQuery("City.findCityByName", City.class).setParameter("name", name).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return null;
 		} 
 	}
@@ -50,7 +53,7 @@ public class CityRepository extends GenericRepository<City> implements ICityRepo
 		try {
 			return entityManager.createNamedQuery("City.findCityById", City.class).setParameter("idCity", idCity).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return null;
 		}
 	}
@@ -59,7 +62,7 @@ public class CityRepository extends GenericRepository<City> implements ICityRepo
 		try {
 			return (List<City>) entityManager.createNamedQuery("City.findAllCities", City.class).getResultList();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return null;
 		}
 	}

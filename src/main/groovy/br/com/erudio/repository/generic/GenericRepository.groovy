@@ -1,19 +1,20 @@
 package br.com.erudio.repository.generic;
 
-import java.io.Serializable;
+import javax.persistence.EntityManager
+import javax.persistence.PersistenceContext
+import javax.persistence.Query
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.apache.log4j.Logger
+import org.springframework.stereotype.Repository
+import org.springframework.transaction.annotation.Transactional
 
 @Repository
 @Transactional(readOnly = true)
 public class GenericRepository<T> implements IGenericRepository<T>, Serializable {
 
     private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(GenericRepository.class);
     
     @PersistenceContext
     protected EntityManager entityManager;
@@ -29,9 +30,10 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     @Transactional
     T save(T entity) {
     	try {
+			logger.info("Persisting an entity");
 			entityManager.merge(entity);
 		} catch (Exception e) {
-			e.printStackTrace()
+			logger.error(e);
 		}
 		return entity;
     }
@@ -40,9 +42,10 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     @Transactional
     T update(T entity) {
     	try {
+			logger.info("Updating an entity");
 			return entityManager.merge(entity);
 		} catch (Exception e) {
-			e.printStackTrace()
+			logger.error(e);
 		}
     }
 
@@ -50,6 +53,7 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     @Transactional
     Boolean delete(T entity) {
 		try {
+			logger.info("Removing an entity");
 			entityManager.remove(entity);
 		} catch (Exception ex) {
 			return false;
@@ -61,9 +65,10 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     @Transactional
     T merge(T entity) {
     	try {
+			logger.info("Persisting an entity");
 			return entityManager.merge(entity);
 		} catch (Exception e) {
-			e.printStackTrace()
+			logger.error(e);
 		}
     }
 
@@ -71,10 +76,11 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     @Transactional
     T getEntity(Serializable id) {
         try {
+			logger.info("Finding an entity");
 	        T entity = (T)entityManager.getReference(clazz, id);
 			return entity;
 		} catch (Exception e) {
-			e.printStackTrace()
+			logger.error(e);
 		}
     }
 
@@ -87,10 +93,11 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
 	@Override
     T getEntityByHQLQuery(String stringQuery) {
         try {
+			logger.info("Finding an entity with HQL");
 	        Query query = entityManager.createQuery(stringQuery);        
 			return (T) query.getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace()
+			logger.error(e);
 		}
     }
 

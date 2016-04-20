@@ -1,8 +1,12 @@
 package br.com.erudio.utils
 
-import java.io.File;
+import java.io.File
+
+import org.apache.log4j.Logger;;
 
 class FileUtils {
+	
+	private Logger logger = Logger.getLogger(FileUtils.class);
 
 	def copyFile(String filePath, String fileDestinationPath){
 		def fileSourceStream = new File(filePath).newDataInputStream()
@@ -35,9 +39,9 @@ class FileUtils {
 			inputStream.read(buffer);
 			inputStream.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			logger.error(e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 		buffer;
 	}

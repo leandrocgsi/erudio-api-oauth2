@@ -60,8 +60,7 @@ public class OAuth2ServerConfiguration {
 		private CustomUserDetailsService userDetailsService;
 
 		@Override
-		public void configure(AuthorizationServerEndpointsConfigurer endpoints)
-				throws Exception {
+		public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 			endpoints
 				.tokenStore(this.tokenStore)
 				.authenticationManager(this.authenticationManager)

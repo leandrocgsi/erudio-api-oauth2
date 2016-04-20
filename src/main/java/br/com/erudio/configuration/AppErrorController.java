@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AppErrorController implements ErrorController {
 
+	private static final Logger logger = Logger.getLogger(AppErrorController.class);
+	
 	private ErrorAttributes errorAttributes;
 
 	private final static String ERROR_PATH = "/error";
@@ -62,8 +65,8 @@ public class AppErrorController implements ErrorController {
 		if (statusCode != null) {
 			try {
 				return HttpStatus.valueOf(statusCode);
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception e) {
+				logger.error(e);
 			}
 		}
 		return HttpStatus.INTERNAL_SERVER_ERROR;

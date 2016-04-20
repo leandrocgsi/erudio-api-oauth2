@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import br.com.erudio.repository.interfaces.IPublicAreaTypeRepository;
 public class PublicAreaTypeRepository extends GenericRepository<PublicAreaType> implements IPublicAreaTypeRepository{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logger logger = Logger.getLogger(PublicAreaTypeRepository.class);
 
 	public PublicAreaTypeRepository() {
 		super(PublicAreaType.class);
@@ -27,7 +30,7 @@ public class PublicAreaTypeRepository extends GenericRepository<PublicAreaType> 
 		try {
 			return entityManager.createQuery("select p from PublicAreaType p where p.idPublicAreaType = :idPublicAreaType", PublicAreaType.class).setParameter("idPublicAreaType", id).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new PublicAreaType();
 		}
 	}
@@ -36,7 +39,7 @@ public class PublicAreaTypeRepository extends GenericRepository<PublicAreaType> 
 		try {
 			return entityManager.createQuery("select p from PublicAreaType p where p.publicAreaTypeDescription like :name", PublicAreaType.class).setParameter("name", name).getSingleResult();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new PublicAreaType();
 		} 
 	}
@@ -45,7 +48,7 @@ public class PublicAreaTypeRepository extends GenericRepository<PublicAreaType> 
 		try {
 			return entityManager.createQuery("select p from PublicAreaType p", PublicAreaType.class).getResultList();
 		} catch (PersistenceException e) {
-			e.printStackTrace();
+			logger.error(e);
 			return new ArrayList<PublicAreaType>();
 		}
 	}

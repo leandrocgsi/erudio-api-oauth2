@@ -1,5 +1,6 @@
 package br.com.erudio.service.reporter;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -17,6 +18,8 @@ import br.com.erudio.utils.FileUtils;
 @Repository
 class Reporter {
         
+	private Logger logger = Logger.getLogger(Reporter.class);
+	
     def makeReport() throws Exception {
 
     	FileUtils fileUtils = new FileUtils()
@@ -33,7 +36,7 @@ class Reporter {
 //			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters, beanColDataSource);
 //			JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(pdf));
 //		} catch (Exception e) {
-//			e.printStackTrace()
+//			logger.error(e);
 //		}
 //        byte[] array = fileUtils.getBytesFromFile(pdf);
         null;
