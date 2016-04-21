@@ -58,11 +58,11 @@ public class DatabaseConfig {
 		entityManagerFactoryBean.setPackagesToScan(entitymanagerPackagesToScan);
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		entityManagerFactoryBean.setMappingResources(
-				//"namedQueries/Address.xml",
-				"namedQueries/City.xml"/*,
+				"namedQueries/Address.xml",
+				"namedQueries/City.xml",
 				"namedQueries/Greeting.xml",
 				"namedQueries/Person.xml",
-				"namedQueries/PublicAreaType.xml"*/
+				"namedQueries/PublicAreaType.xml"
 				);
 
 		Properties jpaProperties = new Properties();
