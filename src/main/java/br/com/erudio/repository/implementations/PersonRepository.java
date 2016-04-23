@@ -17,6 +17,7 @@ import br.com.erudio.model.Person;
 import br.com.erudio.repository.PersonPagedSearchRepository;
 import br.com.erudio.repository.generic.GenericRepository;
 import br.com.erudio.repository.interfaces.IPersonRepository;
+import br.com.erudio.vo.PersonVO;
 
 
 @Repository
@@ -78,7 +79,7 @@ public class PersonRepository extends GenericRepository<Person> implements IPers
         }
 	}
 	
-	public PagedSearchDTO<Person> pagedSearch(PagedSearchDTO<Person> person) {
+	public PagedSearchDTO<PersonVO> pagedSearch(PagedSearchDTO<PersonVO> person) {
 		try {
 			return personPagedSearchRepository.getPagedSearch("p", "Person", person);
 		} catch (PersistenceException e) {

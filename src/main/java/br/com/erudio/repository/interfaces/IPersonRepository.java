@@ -4,7 +4,8 @@ import java.util.List;
 
 import br.com.erudio.dto.PagedSearchDTO;
 import br.com.erudio.model.Person;
-import br.com.erudio.repository.generic.IGenericRepository;;
+import br.com.erudio.repository.generic.IGenericRepository;
+import br.com.erudio.vo.PersonVO;;
 
 
 public interface IPersonRepository extends IGenericRepository<Person>{
@@ -13,5 +14,5 @@ public interface IPersonRepository extends IGenericRepository<Person>{
 	Person findByName(String name);
 	Person findById(Integer id);
 	void deleteById(Integer id);
-	PagedSearchDTO<Person> pagedSearch(PagedSearchDTO<Person> person);
+	PagedSearchDTO<PersonVO> pagedSearch(PagedSearchDTO<PersonVO> person);
 }

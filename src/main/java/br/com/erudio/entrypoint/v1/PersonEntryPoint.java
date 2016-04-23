@@ -83,7 +83,7 @@ class PersonEntryPoint {
     }
 	
 	@RequestMapping(value = "/pagedSearch", method = RequestMethod.POST)
-    public @ResponseBody PagedSearchDTO<Person> buscaPaginada(@RequestBody PagedSearchDTO<Person> person) {
+    public @ResponseBody PagedSearchDTO<PersonVO> buscaPaginada(@RequestBody PagedSearchDTO<PersonVO> person) {
 		return personRepository.pagedSearch(person);
     }
 }
