@@ -1,9 +1,9 @@
-package br.com.erudio.orika.converter;
+package br.com.erudio.converter;
 
 import ma.glasnost.orika.MapperFactory
 import ma.glasnost.orika.impl.DefaultMapperFactory
 
-class OrikaParser {
+class ObjectParser {
 
     private static final MapperFactory orikaMapper = new DefaultMapperFactory.Builder().build();
     

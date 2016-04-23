@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
+import br.com.erudio.converter.ObjectParser;
 import br.com.erudio.dto.PagedSearchDTO;
 import br.com.erudio.model.Person;
 import br.com.erudio.repository.interfaces.IPersonRepository;
+import br.com.erudio.vo.PersonVO;
 
 @Controller
 @Secured("ROLE_USER")
@@ -33,15 +35,19 @@ class PersonEntryPoint {
 	@RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "POST", value = "Insert a new person")
-	public @ResponseBody Person save(@RequestBody Person person) {
-		return personRepository.save(person);
+	public @ResponseBody PersonVO save(@RequestBody Person person) {
+		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
+		personEntity = personRepository.save(personEntity);
+		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "PUT", value = "Update person")
-	public @ResponseBody Person update(@RequestBody Person person) {
-		return personRepository.update(person);
+	public @ResponseBody PersonVO update(@RequestBody Person person) {
+		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
+		personEntity = personRepository.update(personEntity);
+		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
 	}
     
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -55,22 +61,25 @@ class PersonEntryPoint {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "GET", value = "Find persons by id")
-	public @ResponseBody Person findById(@PathVariable Integer id) {
-		return personRepository.findById(id);
+	public @ResponseBody PersonVO findById(@PathVariable Integer id) {
+		Person personEntity = personRepository.findById(id);
+		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
 	}
 	
 	@RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "GET", value = "Find persons by name")
-    public @ResponseBody Person findPersonByName(@PathVariable String name) {
-        return personRepository.findByName(name);
+    public @ResponseBody PersonVO findPersonByName(@PathVariable String name) {
+		Person personEntity = personRepository.findByName(name);
+		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
     }
     
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "GET", value = "Find all persons")
-    public @ResponseBody List<Person> findAll() {
-        return personRepository.findAll();
+    public @ResponseBody List<PersonVO> findAll() {
+		List<Person> allPersons = personRepository.findAll();
+		return ObjectParser.parserListObjectInputToObjectOutput(allPersons, PersonVO.class);
     }
 	
 	@RequestMapping(value = "/pagedSearch", method = RequestMethod.POST)

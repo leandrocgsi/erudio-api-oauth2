@@ -2,6 +2,7 @@ package br.com.erudio.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class PersonVO implements Serializable {
     
@@ -17,9 +18,9 @@ public class PersonVO implements Serializable {
     private String login;
     private String password;
     private String permission;
-    
-    private AddressVO address;
+
     private GenderVO gender;
+	private List<AddressVO> addresses;
 
     public PersonVO() {
         this.gender = new GenderVO();
@@ -105,14 +106,6 @@ public class PersonVO implements Serializable {
 		this.permission = permission;
 	}
 
-	public AddressVO getAddress() {
-		return address;
-	}
-
-	public void setAddress(AddressVO address) {
-		this.address = address;
-	}
-
 	public GenderVO getGender() {
 		return gender;
 	}
@@ -121,12 +114,19 @@ public class PersonVO implements Serializable {
 		this.gender = gender;
 	}
 
+	public List<AddressVO> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<AddressVO> addresses) {
+		this.addresses = addresses;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((idPerson == null) ? 0 : idPerson.hashCode());
+		result = prime * result + ((idPerson == null) ? 0 : idPerson.hashCode());
 		return result;
 	}
 
@@ -145,5 +145,5 @@ public class PersonVO implements Serializable {
 		} else if (!idPerson.equals(other.idPerson))
 			return false;
 		return true;
-	}     
+	}  
 }
