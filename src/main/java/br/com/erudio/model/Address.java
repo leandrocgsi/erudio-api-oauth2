@@ -1,6 +1,5 @@
 package br.com.erudio.model;
 
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,7 +16,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@SuppressWarnings("deprecation")
 @Entity
 @Table(name="address")
 public class Address implements Serializable {
@@ -45,23 +43,19 @@ public class Address implements Serializable {
     private String complement;
     
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-//    @ForeignKey(name="AddressPublicAreaType")
-    @JoinColumn(name = "IdPublicAreaType", referencedColumnName = "IdPublicAreaType")
+    @JoinColumn(name = "IdPublicAreaType", referencedColumnName = "IdPublicAreaType", foreignKey = @ForeignKey(name = "AddressPublicAreaType"))
     private PublicAreaType publicAreaType;
     
     @ManyToOne(optional=false, fetch = FetchType.EAGER)
-//    @ForeignKey(name="AddressState")
-    @JoinColumn(name = "IdState", nullable = false)
+    @JoinColumn(name = "IdState", nullable = false, foreignKey = @ForeignKey(name = "AddressState"))
     private State state;
         
     @ManyToOne(optional=false, fetch = FetchType.EAGER)
-//    @ForeignKey(name="AddressAddressType")
-    @JoinColumn(name = "IdAddressType", referencedColumnName="IdAddressType")
+    @JoinColumn(name = "IdAddressType", referencedColumnName="IdAddressType", foreignKey = @ForeignKey(name = "AddressAddressType"))
     private AddressType addressType;
     
     @ManyToOne(optional=false, fetch = FetchType.EAGER)
-//    @ForeignKey(name="AddressCity")
-    @JoinColumn(name = "IdCity", referencedColumnName="IdCity")
+    @JoinColumn(name = "IdCity", referencedColumnName="IdCity", foreignKey = @ForeignKey(name = "AddressCity"))
     private City city;   
 	
 	@JsonIgnore

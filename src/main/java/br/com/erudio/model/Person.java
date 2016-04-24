@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -59,13 +60,11 @@ public class Person implements Serializable {
     private String permission;
     
     @ManyToOne(optional=false)
-    //@ForeignKey(name = "PersonGender") 
-    @JoinColumn(name="IdGender", referencedColumnName = "IdGender")
+    @JoinColumn(name="IdGender", referencedColumnName = "IdGender", foreignKey = @ForeignKey(name = "PersonGender"))
     private Gender gender;
 	
 	@ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	//@ForeignKey(name="PersonPersonAddress")
-	@JoinTable(name="person_address", joinColumns=@JoinColumn(name="IdPerson"), inverseJoinColumns=@JoinColumn(name="IdAddress"))
+	@JoinTable(name="person_address", joinColumns=@JoinColumn(name="IdPerson"), inverseJoinColumns=@JoinColumn(name="IdAddress"), foreignKey = @ForeignKey(name = "PersonPersonAddress"))
 	private List<Address> addresses;
 
     public Person() {
