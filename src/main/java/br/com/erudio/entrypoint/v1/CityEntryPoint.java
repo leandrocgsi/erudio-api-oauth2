@@ -1,5 +1,8 @@
 package br.com.erudio.entrypoint.v1;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +39,9 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "POST", value = "Saving a city")
 	public @ResponseBody CityVO save(@RequestBody CityVO city) {
 		City savedCity = cityRepository.save(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
-		return ObjectParser.parseObjectInputToObjectOutput(savedCity, CityVO.class);
+		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(savedCity, CityVO.class);
+		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		return cityVO;
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
@@ -44,7 +49,9 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "PUT", value = "Updating a city")
 	public @ResponseBody CityVO update(@RequestBody CityVO city) {
 		City updatedCity = cityRepository.update(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
-		return ObjectParser.parseObjectInputToObjectOutput(updatedCity, CityVO.class);
+		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(updatedCity, CityVO.class);
+		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		return cityVO;
 	}
     
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -60,7 +67,9 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "GET", value = "Find a city by id")
 	public @ResponseBody CityVO findById(@PathVariable Integer id) {
 		City city = cityRepository.findById(id);
-		return ObjectParser.parseObjectInputToObjectOutput(city, CityVO.class);
+		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(city, CityVO.class);
+		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		return cityVO;
 	}
 	
 	@RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
@@ -68,7 +77,9 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "GET", value = "Find a city by name")
     public @ResponseBody CityVO findCityVOByName(@PathVariable String name) {
         City city = cityRepository.findByName(name);
-		return ObjectParser.parseObjectInputToObjectOutput(city, CityVO.class);
+		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(city, CityVO.class);
+		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		return cityVO;
     }
     
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
@@ -76,6 +87,10 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "GET", value = "Find all cities")
     public @ResponseBody List<CityVO> findAll() {
         List<City> allCities = cityRepository.findAll();
-		return ObjectParser.parserListObjectInputToObjectOutput(allCities, CityVO.class);
+		List<CityVO> citiesVO = ObjectParser.parserListObjectInputToObjectOutput(allCities, CityVO.class);
+		for (CityVO cityVO : citiesVO) {
+			cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		}
+		return citiesVO;
     }
 }
