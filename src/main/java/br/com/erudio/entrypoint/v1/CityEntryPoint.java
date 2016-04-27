@@ -40,7 +40,7 @@ class CityEntryPoint {
 	public @ResponseBody CityVO save(@RequestBody CityVO city) {
 		City savedCity = cityRepository.save(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(savedCity, CityVO.class);
-		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		addHATEOASSupport(cityVO);
 		return cityVO;
 	}
 
@@ -50,7 +50,7 @@ class CityEntryPoint {
 	public @ResponseBody CityVO update(@RequestBody CityVO city) {
 		City updatedCity = cityRepository.update(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(updatedCity, CityVO.class);
-		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		addHATEOASSupport(cityVO);
 		return cityVO;
 	}
     
@@ -68,7 +68,7 @@ class CityEntryPoint {
 	public @ResponseBody CityVO findById(@PathVariable Integer id) {
 		City city = cityRepository.findById(id);
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(city, CityVO.class);
-		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		addHATEOASSupport(cityVO);
 		return cityVO;
 	}
 	
@@ -78,7 +78,7 @@ class CityEntryPoint {
     public @ResponseBody CityVO findCityVOByName(@PathVariable String name) {
         City city = cityRepository.findByName(name);
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(city, CityVO.class);
-		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+		addHATEOASSupport(cityVO);
 		return cityVO;
     }
     
@@ -88,9 +88,11 @@ class CityEntryPoint {
     public @ResponseBody List<CityVO> findAll() {
         List<City> allCities = cityRepository.findAll();
 		List<CityVO> citiesVO = ObjectParser.parserListObjectInputToObjectOutput(allCities, CityVO.class);
-		for (CityVO cityVO : citiesVO) {
-			cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
-		}
+		for (CityVO cityVO : citiesVO) addHATEOASSupport(cityVO);
 		return citiesVO;
     }
+
+	private void addHATEOASSupport(CityVO cityVO) {
+		cityVO.add(linkTo(methodOn(CityEntryPoint.class).findById(cityVO.getIdCity())).withSelfRel());
+	}
 }

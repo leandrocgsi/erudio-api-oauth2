@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class PersonVO implements Serializable {
+import org.springframework.hateoas.ResourceSupport;
+
+public class PersonVO extends ResourceSupport implements Serializable {
     
     private static final long serialVersionUID =  1L;
     

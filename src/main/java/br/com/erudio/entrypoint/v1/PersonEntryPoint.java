@@ -86,4 +86,8 @@ class PersonEntryPoint {
     public @ResponseBody PagedSearchDTO<PersonVO> buscaPaginada(@RequestBody PagedSearchDTO<PersonVO> person) {
 		return personRepository.pagedSearch(person);
     }
+
+	private void addHATEOASSupport(PersonVO personVO) {
+		personVO.add(linkTo(methodOn(PersonEntryPoint.class).findById(personVO.getIdPerson())).withSelfRel());
+	}
 }
