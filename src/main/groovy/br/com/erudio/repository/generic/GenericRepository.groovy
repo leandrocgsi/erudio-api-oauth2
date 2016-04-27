@@ -29,14 +29,12 @@ public class GenericRepository<T> implements IGenericRepository<T>, Serializable
     @Override
     @Transactional
     T save(T entity) {
-		T savedEntity = null;
     	try {
 			logger.info("Persisting an entity");
-			savedEntity = entityManager.merge(entity);
+			return entityManager.merge(entity);
 		} catch (Exception e) {
 			logger.error(e);
 		}
-		return savedEntity;
     }
 
     @Override
