@@ -63,7 +63,7 @@ public class Person implements Serializable {
     @JoinColumn(name="IdGender", referencedColumnName = "IdGender", foreignKey = @ForeignKey(name = "PersonGender"))
     private Gender gender;
 	
-	@ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinTable(name="person_address", joinColumns=@JoinColumn(name="IdPerson"), inverseJoinColumns=@JoinColumn(name="IdAddress"), foreignKey = @ForeignKey(name = "PersonPersonAddress"))
 	private List<Address> addresses;
 
