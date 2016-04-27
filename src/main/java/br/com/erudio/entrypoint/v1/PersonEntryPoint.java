@@ -1,9 +1,9 @@
 package br.com.erudio.entrypoint.v1;
 
-import java.util.List;
-
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,7 +41,9 @@ class PersonEntryPoint {
 	public @ResponseBody PersonVO save(@RequestBody Person person) {
 		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
 		personEntity = personRepository.save(personEntity);
-		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		PersonVO personVO = ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		addHATEOASSupport(personVO);
+		return personVO;
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
@@ -50,7 +52,9 @@ class PersonEntryPoint {
 	public @ResponseBody PersonVO update(@RequestBody Person person) {
 		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
 		personEntity = personRepository.update(personEntity);
-		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		PersonVO personVO = ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		addHATEOASSupport(personVO);
+		return personVO;
 	}
     
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -66,7 +70,9 @@ class PersonEntryPoint {
 	@ApiOperation(httpMethod = "GET", value = "Find persons by id")
 	public @ResponseBody PersonVO findById(@PathVariable Integer id) {
 		Person personEntity = personRepository.findById(id);
-		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		PersonVO personVO = ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		addHATEOASSupport(personVO);
+		return personVO;
 	}
 	
 	@RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
@@ -74,7 +80,9 @@ class PersonEntryPoint {
 	@ApiOperation(httpMethod = "GET", value = "Find persons by name")
     public @ResponseBody PersonVO findPersonByName(@PathVariable String name) {
 		Person personEntity = personRepository.findByName(name);
-		return ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		PersonVO personVO = ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
+		addHATEOASSupport(personVO);
+		return personVO;
     }
     
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
@@ -82,7 +90,9 @@ class PersonEntryPoint {
 	@ApiOperation(httpMethod = "GET", value = "Find all persons")
     public @ResponseBody List<PersonVO> findAll() {
 		List<Person> allPersons = personRepository.findAll();
-		return ObjectParser.parserListObjectInputToObjectOutput(allPersons, PersonVO.class);
+		List<PersonVO> personsVO = ObjectParser.parserListObjectInputToObjectOutput(allPersons, PersonVO.class);
+		for (PersonVO personVO : personsVO) addHATEOASSupport(personVO);
+		return personsVO;
     }
 	
 	@RequestMapping(value = "/pagedSearch", method = RequestMethod.POST)
