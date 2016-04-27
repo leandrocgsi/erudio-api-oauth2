@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.hateoas.ResourceSupport;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public class PersonVO extends ResourceSupport implements Serializable {
     
     private static final long serialVersionUID =  1L;
@@ -24,6 +26,7 @@ public class PersonVO extends ResourceSupport implements Serializable {
     private GenderVO gender;
 	private List<AddressVO> addresses;
 
+	@JsonCreator
     public PersonVO() {
         this.gender = new GenderVO();
     }
