@@ -18,9 +18,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
+import br.com.erudio.model.base.BaseEntity;
+
 @Entity
 @Table (name="person")
-public class Person implements Serializable {
+public class Person extends BaseEntity implements Serializable {
     
     private static final long serialVersionUID =  1L;
     
@@ -45,11 +47,6 @@ public class Person implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthDayDate;
     
-    @Column (name="InsertDate", nullable = false)
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date insertDate;
-    
-        
     @Column(name = "Login", unique=true, length = 25)
     private String login;
     
@@ -117,14 +114,6 @@ public class Person implements Serializable {
 
 	public void setBirthDayDate(Date birthDayDate) {
 		this.birthDayDate = birthDayDate;
-	}
-
-	public Date getInsertDate() {
-		return insertDate;
-	}
-
-	public void setInsertDate(Date insertDate) {
-		this.insertDate = insertDate;
 	}
 
 	public String getLogin() {

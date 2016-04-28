@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class PersonVO extends ResourceSupport implements Serializable {
+import br.com.erudio.vo.base.BaseVO;
+
+public class PersonVO extends BaseVO implements Serializable {
     
     private static final long serialVersionUID =  1L;
     

@@ -8,13 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
+
+import br.com.erudio.model.base.BaseEntity;
 
 @Entity
 @Table(name="city")
-public class City implements Serializable{
+public class City extends BaseEntity implements Serializable{
     
     private static final long serialVersionUID =  1L; 
     

@@ -2,11 +2,11 @@ package br.com.erudio.vo;
 
 import java.io.Serializable;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class CityVO extends ResourceSupport implements Serializable{
+import br.com.erudio.vo.base.BaseVO;
+
+public class CityVO extends BaseVO implements Serializable{
     
     private static final long serialVersionUID =  1L; 
     
