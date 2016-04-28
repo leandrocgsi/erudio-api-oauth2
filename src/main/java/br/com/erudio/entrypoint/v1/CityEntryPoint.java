@@ -3,6 +3,7 @@ package br.com.erudio.entrypoint.v1;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,7 @@ class CityEntryPoint {
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "PUT", value = "Updating a city")
 	public @ResponseBody CityVO update(@RequestBody CityVO city) {
+		city.setUpdatedDate(new Date());
 		City updatedCity = cityRepository.update(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(updatedCity, CityVO.class);
 		addHATEOASSupport(cityVO);
