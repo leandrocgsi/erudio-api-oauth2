@@ -18,7 +18,7 @@ The following Open Source projects are used in this sample app:
 * http://projects.spring.io/spring-data-jpa/[Spring Data JPA]
 * http://swagger.io/[Swagger] see more http://jakubstas.com/spring-jersey-swagger-create-documentation/[here] and http://jakubstas.com/spring-jersey-swagger-exposing-documentation/[here]
 * http://www.groovy-lang.org/[Groovy]
-* http://community.jaspersoft.com/[iReport]
+* http://community.jaspersoft.com/[Jasper Reports]
 * http://orika-mapper.github.io/orika-docs/converters.html[Orika Mapper]
 * http://hibernate.org/[Hibernate]
 
