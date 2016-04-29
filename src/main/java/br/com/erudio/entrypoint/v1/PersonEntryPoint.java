@@ -3,6 +3,7 @@ package br.com.erudio.entrypoint.v1;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,8 @@ class PersonEntryPoint {
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "POST", value = "Insert a new person")
 	public @ResponseBody PersonVO save(@RequestBody Person person) {
+		person.setInsertDate(new Date());
+		person.setActive(true);
 		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
 		personEntity = personRepository.save(personEntity);
 		PersonVO personVO = ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);
@@ -50,6 +53,7 @@ class PersonEntryPoint {
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "PUT", value = "Update person")
 	public @ResponseBody PersonVO update(@RequestBody Person person) {
+		person.setUpdatedDate(new Date());
 		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
 		personEntity = personRepository.update(personEntity);
 		PersonVO personVO = ObjectParser.parseObjectInputToObjectOutput(personEntity, PersonVO.class);

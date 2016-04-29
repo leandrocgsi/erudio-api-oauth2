@@ -10,6 +10,7 @@ public class BaseVO extends ResourceSupport{
 	private Date updatedDate;
 	private Integer idUserInsert;
 	private Integer idUserUpdate;
+	private Boolean active;
 	
 	public Date getInsertDate() {
 		return insertDate;
@@ -41,5 +42,13 @@ public class BaseVO extends ResourceSupport{
 	
 	public void setIdUserUpdate(Integer idUserUpdate) {
 		this.idUserUpdate = idUserUpdate;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }

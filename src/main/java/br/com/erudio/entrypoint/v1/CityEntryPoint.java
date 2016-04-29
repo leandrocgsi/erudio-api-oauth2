@@ -39,6 +39,8 @@ class CityEntryPoint {
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "POST", value = "Saving a city")
 	public @ResponseBody CityVO save(@RequestBody CityVO city) {
+		city.setInsertDate(new Date());
+		city.setActive(true);
 		City savedCity = cityRepository.save(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(savedCity, CityVO.class);
 		addHATEOASSupport(cityVO);

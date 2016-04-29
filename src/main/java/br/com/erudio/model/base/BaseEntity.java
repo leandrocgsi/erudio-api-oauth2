@@ -22,6 +22,9 @@ public class BaseEntity {
 	
 	@Column (name="IdUserUpdate")
 	private Integer idUserUpdate;
+	
+	@Column (name="Active")
+	private Boolean active;
 
 	public Date getInsertDate() {
 		return insertDate;
@@ -53,5 +56,13 @@ public class BaseEntity {
 
 	public void setIdUserUpdate(Integer idUserUpdate) {
 		this.idUserUpdate = idUserUpdate;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }
