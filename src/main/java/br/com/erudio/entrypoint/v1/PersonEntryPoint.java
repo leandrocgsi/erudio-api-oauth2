@@ -40,6 +40,7 @@ class PersonEntryPoint {
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "POST", value = "Insert a new person")
 	public @ResponseBody PersonVO save(@RequestBody Person person) {
+		person.setIdUserInsert(0);
 		person.setInsertDate(new Date());
 		person.setActive(true);
 		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
@@ -53,6 +54,7 @@ class PersonEntryPoint {
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "PUT", value = "Update person")
 	public @ResponseBody PersonVO update(@RequestBody Person person) {
+		person.setIdUserUpdate(0);
 		person.setUpdatedDate(new Date());
 		Person personEntity = ObjectParser.parseObjectInputToObjectOutput(person, Person.class);
 		personEntity = personRepository.update(personEntity);

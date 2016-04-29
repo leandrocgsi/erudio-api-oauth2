@@ -10,11 +10,11 @@ import javax.persistence.Temporal;
 public class BaseEntity {
 	
 	@Column (name="InsertDate", nullable = false)
-	@Temporal(javax.persistence.TemporalType.DATE)
+	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date insertDate;
 
 	@Column (name="UpdatedDate", nullable = false)
-	@Temporal(javax.persistence.TemporalType.DATE)
+	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date updatedDate;
 	
 	@Column (name="IdUserInsert", nullable = false)

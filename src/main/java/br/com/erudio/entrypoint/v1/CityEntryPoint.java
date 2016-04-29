@@ -40,6 +40,7 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "POST", value = "Saving a city")
 	public @ResponseBody CityVO save(@RequestBody CityVO city) {
 		city.setInsertDate(new Date());
+		city.setIdUserInsert(0);
 		city.setActive(true);
 		City savedCity = cityRepository.save(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(savedCity, CityVO.class);
@@ -52,6 +53,7 @@ class CityEntryPoint {
 	@ApiOperation(httpMethod = "PUT", value = "Updating a city")
 	public @ResponseBody CityVO update(@RequestBody CityVO city) {
 		city.setUpdatedDate(new Date());
+		city.setIdUserUpdate(0);
 		City updatedCity = cityRepository.update(ObjectParser.parseObjectInputToObjectOutput(city, City.class));
 		CityVO cityVO = ObjectParser.parseObjectInputToObjectOutput(updatedCity, CityVO.class);
 		addHATEOASSupport(cityVO);
