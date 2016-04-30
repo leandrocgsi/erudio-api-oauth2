@@ -105,3 +105,5 @@ You can see the documentation API in localhost adress:
 ```sh
 http://localhost:8080/sdoc.jsp
 ```
+
+image::https://github.com/leandrocgsi/erudio-api-oauth2/blob/master/img/SwaggerDocumentation.png?raw=true[Example Page]
