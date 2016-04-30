@@ -89,7 +89,7 @@ curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: 
 
 # SSL
 
-To configure the project to run on HTTPS as shown in https://spring.io/guides/tutorials/bookmarks/[Building REST services with Spring], enable the `https` profile. You can do this by uncommenting the appropriate line in the application.properties file of this project. This will change the server port to `8443`. Modify the previous requests as in the following command.
+To configure the project to run on HTTPS as shown in [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/), enable the `https` profile. You can do this by uncommenting the appropriate line in the application.properties file of this project. This will change the server port to `8443`. Modify the previous requests as in the following command.
 
 ```sh
 curl -X POST -k -vu clientapp:123456 https://localhost:8443/oauth/token -H "Accept: application/json" -d "password=spring&username=roy&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp"
