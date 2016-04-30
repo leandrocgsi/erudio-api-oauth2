@@ -40,9 +40,9 @@
 			<artifactId>spring-security-oauth2</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
 		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -97,11 +97,11 @@
 			<version>1.4.6</version>
 		</dependency>
 		
-<!--         <dependency>
+        <dependency>
 			<groupId>jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>3.5.3</version>
-		</dependency> -->
+		</dependency>
 		
 		<!-- api documents -->
 		<dependency>
@@ -113,11 +113,6 @@
 			<groupId>org.ajar</groupId>
 			<artifactId>swagger-spring-mvc-ui</artifactId>
 			<version>0.4</version>
-		</dependency>
-		<dependency>
-    		<groupId>org.apache.tomcat.embed</groupId>
-    		<artifactId>tomcat-embed-jasper</artifactId>
-    		<scope>provided</scope>
 		</dependency>
 		
 		<!-- Testing Dependencies -->
