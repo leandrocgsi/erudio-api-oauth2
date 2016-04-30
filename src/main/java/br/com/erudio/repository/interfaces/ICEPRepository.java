@@ -1,7 +1,9 @@
 package br.com.erudio.repository.interfaces;
 
+import br.com.erudio.restclient.model.AddressInfo;
+
 public interface ICEPRepository {
 
-	byte[] makeReport () throws Exception;
+	AddressInfo findAddressInfoByCEP(String cep);
 	
 }
