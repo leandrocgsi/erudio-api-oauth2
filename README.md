@@ -20,6 +20,7 @@ The following Open Source projects are used in this sample app:
 * [Jasper Reports](http://community.jaspersoft.com/)
 * [Orika Mapper](http://orika-mapper.github.io/orika-docs/converters.html)
 * [Hibernate](http://hibernate.org/)
+* [X-Stream](http://x-stream.github.io/)
 
 
 # Build and Run
