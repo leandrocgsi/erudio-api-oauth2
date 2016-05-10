@@ -30,7 +30,7 @@ public class AddressInfoGateway {
             int statusCode = httpResponse.getStatusLine().getStatusCode();
             if (statusCode == HttpStatus.SC_OK) {
                 InputStream inputStream = httpResponse.getEntity().getContent();
-                parserXMLToObject(inputStream);
+                addressInfo = parserXMLToObject(inputStream);
             }
         } catch (Exception e) {
         	logger.fatal(e);
