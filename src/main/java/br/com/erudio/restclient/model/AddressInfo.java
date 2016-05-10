@@ -2,27 +2,32 @@ package br.com.erudio.restclient.model;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XmlRootElement(name = "WebCepDF")
+@XStreamAlias("WebCepDF")
 public class AddressInfo implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@XmlElement(name = "resultado", required = true)
+	@XStreamAlias("resultado")
     private String result;
-    @XmlElement(name = "resultadotxt", required = true)
+	
+    @XStreamAlias("resultadotxt")
     private String resultTxt;
-    @XmlElement(name = "uf", required = true)
+    
+    @XStreamAlias("uf")
     private String uf;
-    @XmlElement(name = "cidade", required = true)
+    
+    @XStreamAlias("cidade")
     private String city;
-    @XmlElement(name = "bairro", required = true)
+    
+    @XStreamAlias("bairro")
     private String town;
-    @XmlElement(name = "tipologradouro", required = true)
+    
+    @XStreamAlias("tipologradouro")
     private String addressType;
-    @XmlElement(name = "logradouro", required = true)
+    
+    @XStreamAlias("logradouro")
     private String street;
 
     public AddressInfo() {}

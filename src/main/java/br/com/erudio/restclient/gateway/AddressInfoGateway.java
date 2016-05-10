@@ -1,14 +1,17 @@
 package br.com.erudio.restclient.gateway;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.InputStream;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import br.com.erudio.restclient.model.AddressInfo;
 
@@ -19,19 +22,27 @@ public class AddressInfoGateway {
 	
     public AddressInfo findAddressInfoByCEP(String cep) {
     	AddressInfo addressInfo = new AddressInfo();
-        JAXBContext jaxbContext;
         try {
-            jaxbContext = JAXBContext.newInstance(AddressInfoGateway.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            String urlAddress = "http://cep.desenvolvefacil.com.br/BuscarCep.php?cep=" + cep + "&ret=xml";
-            logger.info("Getting addres info from " + urlAddress);
-			URL url = new URL(urlAddress);
-            addressInfo = (AddressInfo) unmarshaller.unmarshal(url);
-        } catch (JAXBException ex) {
-        	logger.fatal(ex);
-        } catch (MalformedURLException ex) {
-        	logger.fatal(ex);
+            String url = "http://cep.desenvolvefacil.com.br/BuscarCep.php?cep=" + cep + "&ret=xml";
+            HttpClient client = new DefaultHttpClient();
+            HttpGet method = new HttpGet(url);
+            HttpResponse httpResponse = client.execute(method);
+            int statusCode = httpResponse.getStatusLine().getStatusCode();
+            if (statusCode == HttpStatus.SC_OK) {
+                InputStream inputStream = httpResponse.getEntity().getContent();
+                parserXMLToObject(inputStream);
+            }
+        } catch (Exception e) {
+        	logger.fatal(e);
         }
 		return addressInfo;
+    }
+    
+    private AddressInfo parserXMLToObject(InputStream inputStream) {
+        XStream xStream = new XStream(new DomDriver());
+        xStream.processAnnotations(AddressInfo.class);
+        AddressInfo addressInfo = (AddressInfo) xStream.fromXML(inputStream);
+        System.out.println(addressInfo.getCity().toUpperCase() + " - " + addressInfo.getStreet().toUpperCase());
+        return addressInfo;
     }
 }
