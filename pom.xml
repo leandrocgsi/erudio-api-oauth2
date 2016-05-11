@@ -91,6 +91,12 @@
 			<version>1.4.8</version>
 		</dependency>
 		
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
