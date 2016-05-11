@@ -6,7 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +24,7 @@ public class AddressInfoGateway {
     	AddressInfo addressInfo = new AddressInfo();
         try {
             String url = "http://cep.desenvolvefacil.com.br/BuscarCep.php?cep=" + cep + "&ret=xml";
-            HttpClient client = new DefaultHttpClient();
+            HttpClient client = HttpClientBuilder.create().build();
             HttpGet method = new HttpGet(url);
             HttpResponse httpResponse = client.execute(method);
             int statusCode = httpResponse.getStatusLine().getStatusCode();
