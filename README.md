@@ -23,6 +23,12 @@ The following Open Source projects are used in this sample app:
 * [X-Stream](http://x-stream.github.io/)
 * [Travis CI](https://travis-ci.org/)
 
+# Architectural Style
+
+* [RESTful](http://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html)
+* [HATEOAS](http://timelessrepo.com/haters-gonna-hateoas)
+* [Microservices](http://martinfowler.com/articles/microservices.html)
+* [SOA Concepts](http://www.ibm.com/developerworks/webservices/tutorials/ws-soa-ibmcertified/ws-soa-ibmcertified.html)
 
 # Build and Run
 
