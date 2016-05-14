@@ -99,6 +99,43 @@ curl -X POST -k -vu clientapp:123456 https://localhost:8443/oauth/token -H "Acce
 
 The `-k` parameter is necessary to allow connections to SSL sites without valid certificates or the self signed certificate which is created for this project.
 
+# HATEOAS
+
+```json
+[
+  {
+    "insertDate": 1461812400000,
+    "updatedDate": 1461812400000,
+    "idUserInsert": 0,
+    "idUserUpdate": null,
+    "active": null,
+    "idCity": 1,
+    "name": "UBERLANDIA",
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://localhost:8080/api/v1/city/1"
+      }
+    ]
+  },
+  {
+    "insertDate": 1461812400000,
+    "updatedDate": 1461812400000,
+    "idUserInsert": 0,
+    "idUserUpdate": null,
+    "active": null,
+    "idCity": 2,
+    "name": "PATOS DE MINAS",
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://localhost:8080/api/v1/city/2"
+      }
+    ]
+  }
+]
+```
+
 # Swagger API documentation 
 
 You can see the documentation API in localhost adress:
