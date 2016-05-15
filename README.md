@@ -110,8 +110,8 @@ The `-k` parameter is necessary to allow connections to SSL sites without valid 
 
 [HATEOAS (Hypermedia as the Engine of Application State)](https://spring.io/understanding/HATEOAS) is a constraint of the REST application architecture. A hypermedia-driven site provides information to navigate the site's REST interfaces dynamically by including hypermedia links with the responses. This capability differs from that of SOA-based systems and WSDL-driven interfaces. With SOA, servers and clients usually must access a fixed specification that might be staged somewhere else on the website, on another website, or perhaps distributed by email. According with [Richardson maturity model](http://martinfowler.com/articles/richardsonMaturityModel.html) [HATEOAS](https://spring.io/understanding/HATEOAS) is final level of REST. One API is really [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) when implements this standart. As you can see our app have HATEOAS support.
 
-```bash
-	http://localhost:8080/api/v1/city/findAll
+```sh
+curl http://localhost:8080/api/v1/city/findAll -H "Authorization: Bearer ff16372e-38a7-4e29-88c2-1fb92897f558"
 ```
 
 ```json
