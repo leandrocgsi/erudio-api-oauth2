@@ -48,6 +48,10 @@ The following Open Source projects are used in this sample app:
 * [Usando código Groovy (o Java com esteróides) juntamente com código Java](http://www.semeru.com.br/blog/usando-codigo-groovy-o-java-com-esteroides-juntamente-com-codigo-java/)
 * [Usando código Groovy (o Java com esteróides) juntamente com código Java em um projeto com Spring Boot](http://www.semeru.com.br/blog/usando-codigo-groovy-o-java-com-esteroides-juntamente-com-codigo-java-em-um-projeto-com-spring-boot/)
 
+*Sobre Groovy*
+
+* [Curso Básico de Grails](https://www.youtube.com/playlist?list=PL18bbNo7xuh_dvHiIjegSsbwRq9JPmZL2)
+
 # Build and Run
 
 Use Maven:
