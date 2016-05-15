@@ -43,7 +43,7 @@ The following Open Source projects are used in this sample app:
 * [Entendendo HATEOAS](http://www.semeru.com.br/blog/entendendo_hateoas/)
 * [Aplicações RESTful HATEOAS com SpringBoot](http://www.semeru.com.br/blog/aplicacoes-restfull-hateoas-com-springboot/)
 
-*Sobre Groovy e Java na mesm a aplicação*
+*Sobre Groovy e Java na mesma aplicação*
 
 * [Usando código Groovy (o Java com esteróides) juntamente com código Java](http://www.semeru.com.br/blog/usando-codigo-groovy-o-java-com-esteroides-juntamente-com-codigo-java/)
 * [Usando código Groovy (o Java com esteróides) juntamente com código Java em um projeto com Spring Boot](http://www.semeru.com.br/blog/usando-codigo-groovy-o-java-com-esteroides-juntamente-com-codigo-java-em-um-projeto-com-spring-boot/)
