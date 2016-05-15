@@ -107,6 +107,8 @@ The `-k` parameter is necessary to allow connections to SSL sites without valid 
 
 # HATEOAS
 
+According with [Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html) [HATEOAS](https://spring.io/understanding/HATEOAS) is final level of REST. One API is realy RESTful when implements this standart. As you can see our app have HATEOAS support.
+
 ```json
 [
   {
