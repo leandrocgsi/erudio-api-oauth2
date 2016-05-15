@@ -30,6 +30,24 @@ The following Open Source projects are used in this sample app:
 * [Microservices](http://martinfowler.com/articles/microservices.html)
 * [SOA Concepts](http://www.ibm.com/developerworks/webservices/tutorials/ws-soa-ibmcertified/ws-soa-ibmcertified.html)
 
+# Em português
+
+*Sobre REST*
+
+* [Web Services](http://www.semeru.com.br/blog/web-services/)
+* [RESTful Web Services](http://www.semeru.com.br/blog/restful-web-services/)
+* [HTTP Status Codes](http://www.semeru.com.br/blog/http-status-codes-em-servicos-rest/)
+* [Do zero ao REST em 5 minutos com SpringBoot](http://www.semeru.com.br/blog/do-zero-ao-rest-em-5-minutos-com-springboot/)
+* [Criando o primeiro endpoint REST com SpringBoot](http://www.semeru.com.br/blog/criando-o-primeiro-endpoint-rest-com-springboot/)
+* [Documentando aplicações REST com SpringBoot e Swagger](http://www.semeru.com.br/blog/documentando-aplicacoes-restfull-com-springboot-e-swagger/)
+* [Entendendo HATEOAS](http://www.semeru.com.br/blog/entendendo_hateoas/)
+* [Aplicações RESTful HATEOAS com SpringBoot](http://www.semeru.com.br/blog/aplicacoes-restfull-hateoas-com-springboot/)
+
+*Sobre Groovy e Java na mesm a aplicação*
+
+* [Usando código Groovy (o Java com esteróides) juntamente com código Java](http://www.semeru.com.br/blog/usando-codigo-groovy-o-java-com-esteroides-juntamente-com-codigo-java/)
+* [Usando código Groovy (o Java com esteróides) juntamente com código Java em um projeto com Spring Boot](http://www.semeru.com.br/blog/usando-codigo-groovy-o-java-com-esteroides-juntamente-com-codigo-java-em-um-projeto-com-spring-boot/)
+
 # Build and Run
 
 Use Maven:
