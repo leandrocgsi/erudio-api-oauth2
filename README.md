@@ -136,6 +136,8 @@ The `-k` parameter is necessary to allow connections to SSL sites without valid 
 curl http://localhost:8080/api/v1/city/findAll -H "Authorization: Bearer ff16372e-38a7-4e29-88c2-1fb92897f558"
 ```
 
+As return, we have something like that:
+
 ```json
 [
   {
