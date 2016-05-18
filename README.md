@@ -184,3 +184,7 @@ http://localhost:8080/sdoc.jsp
 As you can see Swagger provide a simple way to document US API's.
 
 ![Example Page](https://github.com/leandrocgsi/erudio-api-oauth2/blob/master/img/SwaggerDocumentation.png?raw=true)
+
+# Erudio RESTful API Archetype
+
+Based on this project we build a Maven Archetype that can give you power to create a simple REST API in minutes. To access this Archetype and build your API based in this project pease access [Erudio RESTful API Archetype](https://github.com/leandrocgsi/erudio-rest-api-archetype) and folow the steps.
