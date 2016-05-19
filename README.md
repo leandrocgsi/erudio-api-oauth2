@@ -52,6 +52,15 @@ The following Open Source projects are used in this sample app:
 
 * [Curso Básico de Grails](https://www.youtube.com/playlist?list=PL18bbNo7xuh_dvHiIjegSsbwRq9JPmZL2)
 
+
+# How to get this project
+
+You can execute following command or as you prefer [download zip here](https://github.com/leandrocgsi/erudio-api-oauth2/archive/master.zip) and import in your favourite IDE.
+
+```sh
+git clone https://github.com/leandrocgsi/erudio-api-oauth2.git
+```
+
 # Build and Run
 
 Use Maven:
