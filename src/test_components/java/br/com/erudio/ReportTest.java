@@ -59,7 +59,7 @@ public class ReportTest {
 
 		log.info("Starting exporting to PDF. Hitherto been spent " + calculaTempo(start) + " seconds");
 
-		JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/Users/LEANDRO/Desktop/test_jasper.pdf");
+		JasperExportManager.exportReportToPdfFile(jasperPrint, System.getProperty("user.dir") + "\\target\\test_jasper.pdf");
 		log.info("Finished. Hitherto been spent " + calculaTempo(start) + " seconds");
 	}
 
