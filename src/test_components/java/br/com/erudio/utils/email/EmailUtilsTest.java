@@ -29,7 +29,7 @@ public class EmailUtilsTest {
 	public void sendEMailTest() {
 		try {
 			emailUtils.sendSimpleMail(configs, "to@gmail.com");
-			emailUtils.sendEmailWithAttachment(configs, "to@gmail.com", "C://Users//LEANDRO//Desktop//teste.txt");
+			emailUtils.sendEmailWithAttachment(configs, "to@gmail.com", System.getProperty("user.dir") + "\\target\\teste.txt");
 		} catch (Exception e) {
 			logger.error(e);
 		}

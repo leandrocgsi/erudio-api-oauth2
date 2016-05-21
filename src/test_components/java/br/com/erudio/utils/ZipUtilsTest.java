@@ -15,7 +15,7 @@ public class ZipUtilsTest {
 	
 	@Test
 	public void zipFileTest() {
-		zipUtils.zipFile("C://Users//LEANDRO//Desktop//teste2.zip");
+		zipUtils.zipFile(System.getProperty("user.dir") + "\\target\\teste2.zip");
 	}
 
 }

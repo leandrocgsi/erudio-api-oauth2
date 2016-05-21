@@ -17,22 +17,22 @@ public class FileUtilsTest {
 	
 	@Test
 	public void copyFileTest() {
-		fileUtils.copyFile("C://Users//LEANDRO//Desktop//pom2.xml", "C://Users//LEANDRO//Desktop//COPY//copied.xml");
+		fileUtils.copyFile(System.getProperty("user.dir") + "\\target\\pom2.xml", System.getProperty("user.dir") + "\\target\\COPY//copied.xml");
 	}
 	
 	@Test
 	public void printFileTest() {
-		fileUtils.printFile("C://Users//LEANDRO//Desktop//pom2.xml");
+		fileUtils.printFile(System.getProperty("user.dir") + "\\target\\pom2.xml");
 	}
 	
 	@Test
 	public void fileToStringTest() {
-		System.out.println(fileUtils.fileToString("C://Users//LEANDRO//Desktop//pom2.xml"));
+		System.out.println(fileUtils.fileToString(System.getProperty("user.dir") + "\\target\\pom2.xml"));
 	}
 	
 	@Test
 	public void writeFileTest() {
-		fileUtils.writeFile("C://Users//LEANDRO//Desktop//teste.txt", "This is the content of the first file".getBytes());
+		fileUtils.writeFile(System.getProperty("user.dir") + "\\target\\teste.txt", "This is the content of the first file".getBytes());
 	}
 
 }
