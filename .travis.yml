@@ -5,6 +5,7 @@ before_install:
     - sudo apt-get install groovy
 
 jdk:
+  - oraclejdk7  
   - oraclejdk8
 notifications:
   email: false
