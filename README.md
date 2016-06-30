@@ -65,7 +65,7 @@ git clone https://github.com/leandrocgsi/erudio-api-oauth2.git
 
 # How to restore database
 
-You just need create an empty database in MySQL with name "_erudio_api_db_" and execute following command im pom.xml folder.
+You just need create an empty database in MySQL with name "_erudio_api_db_", check if your credentials are "root" and "root" and execute following command in pom.xml folder.
 
 ```sh
 mvn flyway:migrate
