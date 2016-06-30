@@ -22,6 +22,7 @@ The following Open Source projects are used in this sample app:
 * [Hibernate](http://hibernate.org/)
 * [X-Stream](http://x-stream.github.io/)
 * [Travis CI](https://travis-ci.org/)
+* [Flyway](https://flywaydb.org/)
 
 # Architectural Style
 
