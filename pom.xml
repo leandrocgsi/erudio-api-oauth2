@@ -114,6 +114,12 @@
 			<version>3.5.3</version>
 		</dependency>
 		
+       	<dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>3.0</version>
+        </dependency>
+		
 		<!-- api documents -->
 		<dependency>
 			<groupId>com.mangofactory</groupId>
@@ -233,6 +239,30 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <configuration>
+                    <url>jdbc:mysql://localhost:3306/erudio_api_db</url>
+                    <user>root</user>
+                    <password></password>
+                </configuration>
+                <dependencies>
+                    <dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.version}</version>
+                        <exclusions>
+                            <exclusion>
+                                <artifactId>slf4j-api</artifactId>
+                                <groupId>org.slf4j</groupId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 
