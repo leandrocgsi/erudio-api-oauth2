@@ -62,6 +62,15 @@ You can execute following command or as you prefer [download zip here](https://g
 git clone https://github.com/leandrocgsi/erudio-api-oauth2.git
 ```
 
+
+# How to restore database
+
+You just need create an empty database in MySQL with name "_erudio_api_db_" and execute following command im pom.xml folder.
+
+```sh
+mvn flyway:migrate
+```
+
 # Build and Run
 
 Use Maven:
