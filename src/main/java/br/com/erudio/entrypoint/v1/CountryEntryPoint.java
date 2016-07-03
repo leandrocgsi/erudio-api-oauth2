@@ -1,8 +1,10 @@
 package br.com.erudio.entrypoint.v1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
@@ -23,7 +25,7 @@ import br.com.erudio.vo.CountryVO;
 @Secured("ROLE_USER")
 @Api(value = "city", description = "Exposes endpoints of service City.")
 @RequestMapping("/api/v1/country")
-class CountryEntryPoint {
+public class CountryEntryPoint {
 
 	@Autowired
     private ICountryRepository countryRepository;
@@ -103,6 +105,11 @@ class CountryEntryPoint {
 		return countries;
 	}
 
+		@Test
+		public void test(){
+			List<String> myList = new ArrayList<String>(Arrays.asList("Andorra la Vella|Bengo|Benguela|Bie|Cabinda|Canillo|Cuando Cubango|Cuanza Norte|Cuanza Sul|Cunene|Encamp|Escaldes-Engordany|Huambo|Huila|La Massana|Luanda|Lunda Norte|Lunda Sul|Malanje|Moxico|Namibe|Ordino|Sant Julia de Loria|Uige|Zaire".split("|")));
+			System.out.println(myList);;
+		}
 	/*private void addHATEOASSupport(CountryVO countryVO) {
 		countryVO.add(linkTo(methodOn(CountryEntryPoint.class).findById(countryVO.getIdCountry())).withSelfRel());
 	}*/
