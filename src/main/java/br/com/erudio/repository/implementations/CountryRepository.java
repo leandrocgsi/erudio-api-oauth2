@@ -60,7 +60,7 @@ public class CountryRepository extends GenericRepository<Country> implements ICo
 	
 	public List<Country> findAll() {
 		try {
-			return (List<Country>) entityManager.createNamedQuery("Country.findAllCities", Country.class).getResultList();
+			return (List<Country>) entityManager.createNamedQuery("Country.findAllCountries", Country.class).getResultList();
 		} catch (PersistenceException e) {
 			logger.error(e);
 			return null;

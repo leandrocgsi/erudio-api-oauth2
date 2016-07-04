@@ -10,7 +10,7 @@
 		</query>
 	</named-query>
 
-	<named-query name="Country.findAllCities">
+	<named-query name="Country.findAllCountries">
 		<query>
 			select c from Country c
 		</query>

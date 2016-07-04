@@ -60,6 +60,7 @@ public class DatabaseConfig {
 		entityManagerFactoryBean.setMappingResources(
 				"namedQueries/Address.xml",
 				"namedQueries/City.xml",
+				"namedQueries/Country.xml",
 				"namedQueries/Greeting.xml",
 				"namedQueries/Person.xml",
 				"namedQueries/PublicAreaType.xml"

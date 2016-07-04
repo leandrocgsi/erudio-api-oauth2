@@ -1,6 +1,7 @@
 package br.com.erudio.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.hateoas.ResourceSupport;
 
@@ -11,7 +12,7 @@ public class CountryVO extends ResourceSupport implements Serializable{
     private Integer idCountry;
     private String name;
     private String localeMessageKey; 
-    private String states;  
+    private List<String> states;  
     
     public CountryVO() {}
 
@@ -39,11 +40,11 @@ public class CountryVO extends ResourceSupport implements Serializable{
 		this.localeMessageKey = localeMessageKey;
 	}
 
-	public String getStates() {
+	public List<String> getStates() {
 		return states;
 	}
 
-	public void setStates(String states) {
+	public void setStates(List<String> states) {
 		this.states = states;
 	}
 
