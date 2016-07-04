@@ -107,8 +107,11 @@ public class CountryEntryPoint {
 
 		@Test
 		public void test(){
-			List<String> myList = new ArrayList<String>(Arrays.asList("Andorra la Vella|Bengo|Benguela|Bie|Cabinda|Canillo|Cuando Cubango|Cuanza Norte|Cuanza Sul|Cunene|Encamp|Escaldes-Engordany|Huambo|Huila|La Massana|Luanda|Lunda Norte|Lunda Sul|Malanje|Moxico|Namibe|Ordino|Sant Julia de Loria|Uige|Zaire".split("|")));
-			System.out.println(myList);;
+			String[] ary = "Andorra la Vella|Bengo|Benguela|Bie|Cabinda|Canillo|Cuando Cubango|Cuanza Norte|Cuanza Sul|Cunene|Encamp|Escaldes-Engordany|Huambo|Huila|La Massana|Luanda|Lunda Norte|Lunda Sul|Malanje|Moxico|Namibe|Ordino|Sant Julia de Loria|Uige|Zaire".split("\\|");
+			for (String string : ary) {
+				System.out.println(string);
+			}
+			List<String> myList = new ArrayList<String>(Arrays.asList(ary));
 		}
 	/*private void addHATEOASSupport(CountryVO countryVO) {
 		countryVO.add(linkTo(methodOn(CountryEntryPoint.class).findById(countryVO.getIdCountry())).withSelfRel());
