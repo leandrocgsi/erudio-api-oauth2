@@ -103,6 +103,7 @@ public class CountryEntryPoint {
 			String[] states = country.getStates().split("\\|");
 			
 			countryVO.setStates(Arrays.asList(states));
+			countries.add(countryVO);
 		}
 		return countries;
 	}
