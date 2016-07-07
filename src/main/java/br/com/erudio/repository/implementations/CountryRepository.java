@@ -26,23 +26,9 @@ public class CountryRepository extends GenericRepository<Country> implements ICo
 		super(Country.class);
 	}
 	
-	@Override
-	@Transactional
-	public void deleteById(Integer id) {
-        try {
-        	Query query = entityManager.createNamedQuery("Country.deleteCountryById").setParameter("idCountry", id);
-            query.executeUpdate(); 
-        } catch (ConstraintViolationException e) {
-            System.out.println("Erro ao alterar status: " + e.getMessage());
-            entityManager.getTransaction().rollback();
-        } finally {
-        	entityManager.close();
-        }
-	}	
-		
 	public Country findByName(String name) {
 		try {
-			return entityManager.createNamedQuery("Country.findCountryByName", Country.class).setParameter("name", name).getSingleResult();
+			return entityManager.createNamedQuery("Country.findCountryByName", Country.class).setParameter("name", "%" + name + "%").getSingleResult();
 		} catch (PersistenceException e) {
 			logger.error(e);
 			return null;
@@ -65,5 +51,15 @@ public class CountryRepository extends GenericRepository<Country> implements ICo
 			logger.error(e);
 			return null;
 		}
+	}
+
+	@Override
+	public List<Country> findByStateName(String stateName) {
+		try {
+			return entityManager.createNamedQuery("Country.findCountryByStateName", Country.class).setParameter("stateName", "%" + stateName + "%").getResultList();
+		} catch (PersistenceException e) {
+			logger.error(e);
+			return null;
+		} 
 	}
 }
