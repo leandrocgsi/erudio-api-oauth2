@@ -54,7 +54,7 @@ public class CountryEntryPoint {
 		return countryVO;
     }
 	
-	@RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/findByStateName/{stateName}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "GET", value = "Find a country by name")
     public @ResponseBody List<CountryVO> findByStateName(@PathVariable String stateName) {
