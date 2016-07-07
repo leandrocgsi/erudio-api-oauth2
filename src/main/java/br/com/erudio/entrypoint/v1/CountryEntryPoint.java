@@ -44,17 +44,26 @@ public class CountryEntryPoint {
 		return countryVO;
 	}
 	
-	/*
 	@RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "GET", value = "Find a country by name")
     public @ResponseBody CountryVO findCountryVOByName(@PathVariable String name) {
         Country country = countryRepository.findByName(name);
-		CountryVO countryVO = ObjectParser.parseObjectInputToObjectOutput(country, CountryVO.class);
+		CountryVO countryVO = parseCountry(country);
 		addHATEOASSupport(countryVO);
 		return countryVO;
-    }*/
-    
+    }
+	
+	@RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+	@ApiOperation(httpMethod = "GET", value = "Find a country by name")
+    public @ResponseBody List<CountryVO> findByStateName(@PathVariable String stateName) {
+		List<Country> countries = countryRepository.findByStateName(stateName);
+		List<CountryVO> citiesVO = parseCountries(countries);
+		for (CountryVO countryVO : citiesVO) addHATEOASSupport(countryVO);
+		return citiesVO;
+    }
+	
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
 	@ApiOperation(httpMethod = "GET", value = "Find all cities")
