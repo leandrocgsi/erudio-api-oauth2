@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.erudio.service.importer.ImportExample;
+import br.com.erudio.service.importer.bean.ImportExample;
 
 public interface IImportRepository {
 

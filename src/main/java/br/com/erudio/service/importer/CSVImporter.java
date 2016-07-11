@@ -12,6 +12,8 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
+import br.com.erudio.service.importer.bean.ImportExample;
+
 @Service
 public class CSVImporter {
 

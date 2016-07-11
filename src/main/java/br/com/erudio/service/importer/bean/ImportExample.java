@@ -1,4 +1,4 @@
-package br.com.erudio.service.importer;
+package br.com.erudio.service.importer.bean;
 
 import java.io.Serializable;
 

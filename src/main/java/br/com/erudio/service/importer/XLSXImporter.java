@@ -13,6 +13,8 @@ import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.erudio.service.importer.bean.ImportExample;
+
 @Repository
 @Transactional(readOnly = true)
 public class XLSXImporter {

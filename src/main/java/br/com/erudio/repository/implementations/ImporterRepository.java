@@ -11,8 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.com.erudio.repository.interfaces.IImportRepository;
 import br.com.erudio.service.importer.CSVImporter;
-import br.com.erudio.service.importer.ImportExample;
 import br.com.erudio.service.importer.XLSXImporter;
+import br.com.erudio.service.importer.bean.ImportExample;
 
 @Repository
 @Transactional(readOnly = true)
