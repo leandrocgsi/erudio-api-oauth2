@@ -18,13 +18,13 @@ The following Open Source projects are used in this sample app:
 * [Swagger](http://swagger.io/) see more [here](http://jakubstas.com/spring-jersey-swagger-create-documentation/) and [here](http://jakubstas.com/spring-jersey-swagger-exposing-documentation/)
 * [Groovy](http://www.groovy-lang.org/)
 * [Jasper Reports](http://community.jaspersoft.com/)
+* [Open CSV](http://opencsv.sourceforge.net/)
+* [Apache POI](https://poi.apache.org/)
 * [Orika Mapper](http://orika-mapper.github.io/orika-docs/converters.html)
 * [Hibernate](http://hibernate.org/)
 * [X-Stream](http://x-stream.github.io/)
 * [Travis CI](https://travis-ci.org/)
 * [Flyway](https://flywaydb.org/)
-* [Open CSV](http://opencsv.sourceforge.net/)
-* [Apache POI](https://poi.apache.org/)
 
 # Architectural Style
 
