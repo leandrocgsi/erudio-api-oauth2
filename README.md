@@ -24,6 +24,7 @@ The following Open Source projects are used in this sample app:
 * [Travis CI](https://travis-ci.org/)
 * [Flyway](https://flywaydb.org/)
 * [Open CSV](http://opencsv.sourceforge.net/)
+* [Apache POI](https://poi.apache.org/)
 
 # Architectural Style
 
