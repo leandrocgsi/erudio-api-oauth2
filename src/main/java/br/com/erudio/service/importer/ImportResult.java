@@ -1,4 +1,4 @@
-package br.com.erudio.importer;
+package br.com.erudio.service.importer;
 
 import java.util.ArrayList;
 import java.util.List;

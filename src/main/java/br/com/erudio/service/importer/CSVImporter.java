@@ -1,4 +1,4 @@
-package br.com.erudio.importer;
+package br.com.erudio.service.importer;
 
 import java.io.IOException;
 import java.io.InputStream;
