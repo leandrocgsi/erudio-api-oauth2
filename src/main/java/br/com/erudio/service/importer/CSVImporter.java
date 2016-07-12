@@ -23,26 +23,34 @@ public class CSVImporter {
             records = CSVFormat.RFC4180.parse(new InputStreamReader(input));
             Iterator<CSVRecord> iterator = records.iterator();
             iterator.next();
-            List<Person> persons = new ArrayList<Person>();
-
-            while (iterator.hasNext()) {
-                CSVRecord record = iterator.next();
-                Person person = new Person();
-
-                person.setName(record.get(0));
-                person.setEmail(record.get(1));
-                person.setPhone(record.get(2));
-                person.setCpf(record.get(3));
-//                person.setBirthDayDate(record.get(4));
-                person.setLogin(record.get(5));
-                person.setPassword(record.get(6));
-                person.setPermission(record.get(7));
-//                person.setGender(record.get(7));
-                persons.add(person);
-            }
-            return persons;
+            return getPersonsList(iterator);
         } catch (IOException e) {
             throw new ApplicationContextException("Loadfile Error");
         }
+    }
+
+    private List<Person> getPersonsList(Iterator<CSVRecord> iterator) {
+        List<Person> persons = new ArrayList<Person>();
+        while (iterator.hasNext()) {
+            Person person = getPerson(iterator);
+            persons.add(person);
+        }
+        return persons;
+    }
+
+    private Person getPerson(Iterator<CSVRecord> iterator) {
+        CSVRecord record = iterator.next();
+        Person person = new Person();
+
+        person.setName(record.get(0));
+        person.setEmail(record.get(1));
+        person.setPhone(record.get(2));
+        person.setCpf(record.get(3));
+//                person.setBirthDayDate(record.get(4));
+        person.setLogin(record.get(5));
+        person.setPassword(record.get(6));
+        person.setPermission(record.get(7));
+//                person.setGender(record.get(7));
+        return person;
     }
 }
