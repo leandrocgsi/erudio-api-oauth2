@@ -1,0 +1,13 @@
+Name;Email;Phone;CPF;BirthDayDate;Login;Password;Permission;PersonGender
+Rodrigo Enrico Pereira;alexandre-daniel76@planicoop.com.br;81995572520;40188555161;31/12/1969;login1;123456;ROLE_ADMIN;1
+Ra¡ssa Cabrera;nicolas_raul@academiaconcerto.art.br;79987112460;38750254901;01/01/1987;login2;123456;ROLE_ADMIN;2
+CauÆ Henry Alves;1rodrigo_e_pereira@oerlikon.com;77978652400;17019585388;02/01/1988;login3;123456;ROLE_USER;1
+Mar¡lia Silva;1nicolas_raul@academiaconcerto.art.br;75970192340;39515319323;02/01/1989;login4;123456;ROLE_USER;2
+Diogo Raul Nascimento;2rodrigo_e_pereira@oerlikon.com;73961732280;27930834437;03/01/1990;login5;123456;ROLE_USER;1
+Jos‚ Roberto;2nicolas_raul@academiaconcerto.art.br;71953272220;25555796734;04/01/1991;login6;123456;ROLE_USER;2
+Olianda Silva;3rodrigo_e_pereira@oerlikon.com;69944812160;23180759031;05/01/1992;login7;123456;ROLE_USER;1
+Rafael Zagaia;3nicolas_raul@academiaconcerto.art.br;67936352100;20805721328;05/01/1993;login8;123456;ROLE_USER;2
+Maria Severina;4rodrigo_e_pereira@oerlikon.com;65927892040;18430683626;06/01/1994;login9;123456;ROLE_USER;1
+Filop“ncio Souza;4nicolas_raul@academiaconcerto.art.br;63919431980;16055645923;07/01/1995;login10;123456;ROLE_USER;2
+Hortencia Maria;5rodrigo_e_pereira@oerlikon.com;61910971920;13680608220;08/01/1996;login11;123456;ROLE_USER;1
+Glauco Picolli;5nicolas_raul@academiaconcerto.art.br;59902511860;11305570518;08/01/1997;login12;123456;ROLE_USER;2
