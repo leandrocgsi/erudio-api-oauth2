@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.erudio.service.importer.bean.ImportExample;
+import br.com.erudio.model.Person;
 
 public interface IImportRepository {
 
-    List<ImportExample> importFile(MultipartFile file) throws Exception;
+	List<Person> importFile(MultipartFile file) throws Exception;
     
 }

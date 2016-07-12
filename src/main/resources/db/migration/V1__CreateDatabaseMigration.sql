@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `person` (
 -- DELETE FROM `person`;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
 INSERT INTO `person` (`IdPerson`, `BirthDayDate`, `CPF`, `Email`, `InsertDate`, `Login`, `Name`, `Password`, `Permission`, `Phone`, `IdGender`, `IdUserInsert`, `IdUserUpdate`, `UpdatedDate`, `Active`) VALUES
-	(1, '1984-12-02', '64421743283', 'a@b.c', '2016-02-06 00:00:00', 'flavio', 'MAURO JOSÉ DE PAULA', '123456', 'ROLE_ADMIN', '34988066283', 1, 0, NULL, '2016-04-27 00:00:00', NULL),
+	(1, '1984-12-02', '64421743283', 'a@b.c', '2016-02-06 00:00:00', 'flavio', 'MAURO JOSÉ DE PAULA', '123456', 'ROLE_ADMIN', '12345678901', 1, 0, NULL, '2016-04-27 00:00:00', NULL),
 	(7, '1984-02-02', '64421743283', 'a@b.c', '2016-02-02 00:00:00', 'siamo', 'GERALDO SIMAO', 'teste', 'ROLE_ADMIN', '12312121', 1, 0, NULL, '2016-04-27 00:00:00', NULL),
 	(14, '1984-02-01', '64421743283', 'a@b.c', '2016-02-01 00:00:00', 'leo', 'LEODAVIO JOSE', 'teste', 'ROLE_ADMIN', '12312121', 1, 0, NULL, '2016-04-27 00:00:00', NULL),
 	(15, '1984-02-02', '64421743283', 'a@b.c', '2016-02-02 00:00:00', 'epaminondas', 'EPAMINONDAS MURICI', 'teste', 'ROLE_ADMIN', '12312121', 1, 0, NULL, '2016-04-23 00:00:00', NULL),

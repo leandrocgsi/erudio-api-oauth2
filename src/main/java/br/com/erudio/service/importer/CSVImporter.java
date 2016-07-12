@@ -12,31 +12,35 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 
-import br.com.erudio.service.importer.bean.ImportExample;
+import br.com.erudio.model.Person;
 
 @Service
 public class CSVImporter {
 
-    public List<ImportExample> readCSV(InputStream input){
+    public List<Person> readCSV(InputStream input){
         try {
             Iterable<CSVRecord> records;
             records = CSVFormat.RFC4180.parse(new InputStreamReader(input));
             Iterator<CSVRecord> iterator = records.iterator();
             iterator.next();
-            List<ImportExample> listQuestions = new ArrayList<ImportExample>();
+            List<Person> persons = new ArrayList<Person>();
 
             while (iterator.hasNext()) {
                 CSVRecord record = iterator.next();
-                ImportExample importExample = new ImportExample();
+                Person person = new Person();
 
-                importExample.setQuestion_pt_br(record.get(3));
-                importExample.setFactor_pt_br(record.get(6));
-                importExample.setScale(record.get(7));
-                importExample.setOxygen_behavior(record.get(9));
-                importExample.setGrid_intro_text(record.get(10));
-                listQuestions.add(importExample);
+                person.setName(record.get(0));
+                person.setEmail(record.get(1));
+                person.setPhone(record.get(2));
+                person.setCpf(record.get(3));
+//                person.setBirthDayDate(record.get(4));
+                person.setLogin(record.get(5));
+                person.setPassword(record.get(6));
+                person.setPermission(record.get(7));
+//                person.setGender(record.get(7));
+                persons.add(person);
             }
-            return listQuestions;
+            return persons;
         } catch (IOException e) {
             throw new ApplicationContextException("Loadfile Error");
         }
