@@ -5,8 +5,7 @@
 
 This is a simple REST service that provides some RESTful endpoints protected by OAuth 2. Adictionally we document all endpoints with Swagger. The REST service is based on the [Spring REST Service OAuth - by Roy Clarkson](https://github.com/royclarkson/spring-rest-service-oauth) and in another projects mine like [Erudio API With Groovy](https://github.com/leandrocgsi/erudio-api-with-groovy), [Semeru JSF Groovy Maven](https://github.com/leandrocgsi/semeru_jsf_groovy_maven) and [Erudio Client WS Exporter](https://github.com/leandrocgsi/erudio-client-ws-exporter). This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the [Spring Security OAuth project](https://github.com/spring-projects/spring-security-oauth/issues).
 
-
-# Open Source Used Projects
+# Open Source Projects Used
 
 The following Open Source projects are used in this sample app:
 
