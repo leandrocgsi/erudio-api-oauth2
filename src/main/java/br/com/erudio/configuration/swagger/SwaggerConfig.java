@@ -15,25 +15,25 @@ import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
 @EnableSwagger
 public class SwaggerConfig {
 
-	@Autowired
-	private SpringSwaggerConfig springSwaggerConfig;
+    @Autowired
+    private SpringSwaggerConfig springSwaggerConfig;
 
-	@Bean
-	public SwaggerSpringMvcPlugin groupOnePlugin() {
-		return new SwaggerSpringMvcPlugin(springSwaggerConfig).
-				apiInfo(apiInfo()).
-				includePatterns("/api/.*").
-				swaggerGroup("erudio");
-	}
+    @Bean
+    public SwaggerSpringMvcPlugin groupOnePlugin() {
+        return new SwaggerSpringMvcPlugin(springSwaggerConfig).
+                apiInfo(apiInfo()).
+                includePatterns("/api/.*").
+                swaggerGroup("erudio");
+    }
 
-	private ApiInfo apiInfo() {
-		
-		ApiInfo apiInfo = new ApiInfo("ERUDIO API",
-				"ERUDIO API's connecting world",
-				"ERUDIO API's terms of service",
-				"erudio_api@gmail.com",
-				"ERUDIO API",
-				"http://erudio.com.br");
-		return apiInfo;
-	}
+    private ApiInfo apiInfo() {
+        
+        ApiInfo apiInfo = new ApiInfo("ERUDIO API",
+                "ERUDIO API's connecting world",
+                "ERUDIO API's terms of service",
+                "erudio_api@gmail.com",
+                "ERUDIO API",
+                "http://erudio.com.br");
+        return apiInfo;
+    }
 }

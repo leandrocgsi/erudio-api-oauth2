@@ -2,10 +2,12 @@ package br.com.erudio.configuration.database;
 
 import java.util.Properties;
 
+import javax.servlet.MultipartConfigElement;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.embedded.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -19,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
-	
+    
     @Value("${dataSource.driverClassName}")
     private String driver;
     @Value("${dataSource.url}")
@@ -39,62 +41,70 @@ public class DatabaseConfig {
     @Value("${entitymanager.packagesToScan}")
     private String entitymanagerPackagesToScan;
 
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(driver);
-		dataSource.setUrl(url);
-		dataSource.setUsername(username);
-		dataSource.setPassword(password);
-		return dataSource;
-	}
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        return dataSource;
+    }
 
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 
-		entityManagerFactoryBean.setDataSource(dataSource);
+        entityManagerFactoryBean.setDataSource(dataSource);
 
-		entityManagerFactoryBean.setPackagesToScan(entitymanagerPackagesToScan);
-		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-		entityManagerFactoryBean.setMappingResources(
-				"namedQueries/Address.xml",
-				"namedQueries/City.xml",
-				"namedQueries/Country.xml",
-				"namedQueries/Greeting.xml",
-				"namedQueries/Person.xml",
-				"namedQueries/PublicAreaType.xml"
-				);
+        entityManagerFactoryBean.setPackagesToScan(entitymanagerPackagesToScan);
+        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        entityManagerFactoryBean.setMappingResources(
+                "namedQueries/Address.xml",
+                "namedQueries/City.xml",
+                "namedQueries/Country.xml",
+                "namedQueries/Greeting.xml",
+                "namedQueries/Person.xml",
+                "namedQueries/PublicAreaType.xml"
+                );
 
-		Properties jpaProperties = new Properties();
-		jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
-		jpaProperties.put(org.hibernate.cfg.Environment.SHOW_SQL, show_sql);
-		jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, hbm2ddlAuto);
-		jpaProperties.put(org.hibernate.cfg.Environment.FORMAT_SQL, format_sql);
-		entityManagerFactoryBean.setJpaProperties(jpaProperties);
-		
-		return entityManagerFactoryBean;
-	}
-	
-	@Bean
-	public JpaTransactionManager transactionManager() {
-		JpaTransactionManager transactionManager = new JpaTransactionManager();
-		transactionManager.setEntityManagerFactory(entityManagerFactory.getObject());
-		return transactionManager;
-	}
-	@Bean
-	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-		return new PersistenceExceptionTranslationPostProcessor();
-	}
+        Properties jpaProperties = new Properties();
+        jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
+        jpaProperties.put(org.hibernate.cfg.Environment.SHOW_SQL, show_sql);
+        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, hbm2ddlAuto);
+        jpaProperties.put(org.hibernate.cfg.Environment.FORMAT_SQL, format_sql);
+        entityManagerFactoryBean.setJpaProperties(jpaProperties);
+        
+        return entityManagerFactoryBean;
+    }
+    
+    @Bean
+    public JpaTransactionManager transactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory.getObject());
+        return transactionManager;
+    }
+    @Bean
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
+    
+    @Bean
+    public MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        factory.setMaxFileSize("5120KB");
+        factory.setMaxRequestSize("5120KB");
+        return factory.createMultipartConfig();
+    }
 
-	@Autowired
-	private Environment env;
+    @Autowired
+    private Environment env;
 
-	@Autowired
-	private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
 
-	@Autowired
-	private LocalContainerEntityManagerFactoryBean entityManagerFactory;
-	
+    @Autowired
+    private LocalContainerEntityManagerFactoryBean entityManagerFactory;
+    
 
 }

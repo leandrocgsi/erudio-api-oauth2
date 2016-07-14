@@ -14,17 +14,17 @@ import br.com.erudio.configuration.userdetails.CustomUserDetailsService;
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private CustomUserDetailsService userDetailsService;
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		 auth.userDetailsService(userDetailsService);
-	}
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
+    
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+         auth.userDetailsService(userDetailsService);
+    }
 
-	@Override
-	@Bean
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 }
