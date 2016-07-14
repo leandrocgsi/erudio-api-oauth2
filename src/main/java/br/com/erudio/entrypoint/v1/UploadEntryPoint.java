@@ -1,8 +1,7 @@
 package br.com.erudio.entrypoint.v1;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +43,10 @@ public class UploadEntryPoint {
 
         if (!file.isEmpty()) {
             try {
-                importRepository.importFile(file);
+                String fileName = file.getOriginalFilename().toLowerCase();
+                InputStream inputStream = file.getInputStream();
+                
+                importRepository.importFile(inputStream, fileName);
 //                Files.copy(file.getInputStream(), Paths.get(ROOT, file.getOriginalFilename()));
                 redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
             } catch (IOException|RuntimeException e) {

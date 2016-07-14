@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import br.com.erudio.model.Person;
 import br.com.erudio.repository.interfaces.IImportRepository;
@@ -26,11 +25,7 @@ public class ImporterRepository implements IImportRepository, Serializable{
     @Autowired
     private CSVImporter baseQuestionCSVImporter;
 
-    public List<Person> importFile(MultipartFile file) throws Exception {
-        String fileName = file.getOriginalFilename().toLowerCase();
-
-        InputStream inputStream = file.getInputStream();
-
+    public List<Person> importFile(InputStream inputStream, String fileName) throws Exception {
         if(fileName.endsWith(".xlsx")) return xlsxImporter.readXLSX(inputStream);
         else if(fileName.endsWith(".csv")) return baseQuestionCSVImporter.readCSV(inputStream);
         else throw new Exception("Invalid Format");
