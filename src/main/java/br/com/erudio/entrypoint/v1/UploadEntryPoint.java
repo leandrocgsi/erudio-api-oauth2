@@ -1,8 +1,8 @@
 package br.com.erudio.entrypoint.v1;
 
-import java.io.IOException;
 import java.io.InputStream;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -29,34 +28,34 @@ import br.com.erudio.utils.FileUtils;
 public class UploadEntryPoint {
 
     public static final String ROOT = "upload-dir";
-    
+
+    private static final Logger logger = Logger.getLogger(UploadEntryPoint.class);
+
     @Autowired
     private IImportRepository importRepository;
-    
+
     FileUtils fileUtils = new FileUtils();
 
     @ResponseStatus(value = HttpStatus.OK)
     @ApiOperation(value = "Uploading file!", notes = "Uploading file!")
-    @ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 500, message = "Houston we have a problem") })
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 500,
+                                                                                   message = "Houston we have a problem") })
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws Exception {
+    public void handleFileUpload(@RequestParam("file") MultipartFile file) throws Exception {
 
         if (!file.isEmpty()) {
             try {
                 String fileName = file.getOriginalFilename().toLowerCase();
                 InputStream inputStream = file.getInputStream();
-                
-                importRepository.importFile(inputStream, fileName);
-//                Files.copy(file.getInputStream(), Paths.get(ROOT, file.getOriginalFilename()));
-                redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
-            } catch (IOException|RuntimeException e) {
-                e.printStackTrace();
-                redirectAttributes.addFlashAttribute("message", "Failued to upload " + file.getOriginalFilename() + " => " + e.getMessage());
-            }
-        } else {
-            redirectAttributes.addFlashAttribute("message", "Failed to upload " + file.getOriginalFilename() + " because it was empty");
-        }
 
-        return "redirect:/";
+                importRepository.importFile(inputStream, fileName);
+            } catch (RuntimeException e) {
+                logger.error("Error while uploading.", e);
+                throw e;
+            } catch (Exception e) {
+                logger.error("Error while uploading.", e);
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
