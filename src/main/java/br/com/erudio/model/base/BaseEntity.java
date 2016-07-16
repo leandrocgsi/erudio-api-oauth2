@@ -8,61 +8,61 @@ import javax.persistence.Temporal;
 
 @MappedSuperclass
 public class BaseEntity {
-	
-	@Column (name="InsertDate", nullable = false)
-	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date insertDate;
 
-	@Column (name="UpdatedDate", nullable = false)
-	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date updatedDate;
-	
-	@Column (name="IdUserInsert", nullable = false)
-	private Integer idUserInsert;
-	
-	@Column (name="IdUserUpdate")
-	private Integer idUserUpdate;
-	
-	@Column (name="Active")
-	private Boolean active;
+    @Column(name = "InsertDate", nullable = false)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date insertDate;
 
-	public Date getInsertDate() {
-		return insertDate;
-	}
+    @Column(name = "UpdatedDate", nullable = false)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date updatedDate;
 
-	public void setInsertDate(Date insertDate) {
-		this.insertDate = insertDate;
-	}
+    @Column(name = "IdUserInsert", nullable = false)
+    private Integer idUserInsert;
 
-	public Date getUpdatedDate() {
-		return updatedDate;
-	}
+    @Column(name = "IdUserUpdate")
+    private Integer idUserUpdate;
 
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = new Date();
-	}
+    @Column(name = "Active")
+    private Boolean active;
 
-	public Integer getIdUserInsert() {
-		return idUserInsert;
-	}
+    public Date getInsertDate() {
+        return insertDate;
+    }
 
-	public void setIdUserInsert(Integer idUserInsert) {
-		this.idUserInsert = idUserInsert;
-	}
+    public void setInsertDate(Date insertDate) {
+        this.insertDate = insertDate;
+    }
 
-	public Integer getIdUserUpdate() {
-		return idUserUpdate;
-	}
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
 
-	public void setIdUserUpdate(Integer idUserUpdate) {
-		this.idUserUpdate = idUserUpdate;
-	}
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = new Date();
+    }
 
-	public Boolean getActive() {
-		return active;
-	}
+    public Integer getIdUserInsert() {
+        return idUserInsert;
+    }
 
-	public void setActive(Boolean active) {
-		this.active = active;
-	}
+    public void setIdUserInsert(Integer idUserInsert) {
+        this.idUserInsert = idUserInsert;
+    }
+
+    public Integer getIdUserUpdate() {
+        return idUserUpdate;
+    }
+
+    public void setIdUserUpdate(Integer idUserUpdate) {
+        this.idUserUpdate = idUserUpdate;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 }
