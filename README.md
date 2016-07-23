@@ -4,7 +4,7 @@
 [![Build Status](https://circleci.com/gh/leandrocgsi/erudio-api-oauth2.svg?&style=shield)](https://circleci.com/gh/leandrocgsi/erudio-api-oauth2/)
 [![GitHub Release](https://img.shields.io/github/release/leandrocgsi/erudio-api-oauth2.svg?maxAge=3600)](https://github.com/leandrocgsi/erudio-api-oauth2/releases/latest)
 [![Maven Central](https://img.shields.io/maven-central/v/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect.svg?maxAge=3600)](http://search.maven.org/#search|ga|1|g%3A%22nz.net.ultraq.thymeleaf%22%20AND%20a%3A%22thymeleaf-layout-dialect%22)
-[![License](https://img.shields.io/github/license/ultraq/thymeleaf-layout-dialect.svg?maxAge=2592000)](https://github.com/ultraq/thymeleaf-layout-dialect/blob/master/LICENSE.txt)
+[![License](https://img.shields.io/github/license/leandrocgsi/erudio-api-oauth2.svg?maxAge=2592000)](https://github.com/leandrocgsi/erudio-api-oauth2/blob/master/LICENSE.txt)
 
 This is a simple REST service that provides some RESTful endpoints protected by OAuth 2. Adictionally we document all endpoints with Swagger. The REST service is based on the [Spring REST Service OAuth - by Roy Clarkson](https://github.com/royclarkson/spring-rest-service-oauth) and in another projects mine like [Erudio API With Groovy](https://github.com/leandrocgsi/erudio-api-with-groovy), [Semeru JSF Groovy Maven](https://github.com/leandrocgsi/semeru_jsf_groovy_maven) and [Erudio Client WS Exporter](https://github.com/leandrocgsi/erudio-client-ws-exporter). This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the [Spring Security OAuth project](https://github.com/spring-projects/spring-security-oauth/issues).
 
