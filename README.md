@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/leandrocgsi/erudio-api-oauth2.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-api-oauth2)
 [![Build Status](https://circleci.com/gh/leandrocgsi/erudio-api-oauth2.svg?&style=shield)](https://circleci.com/gh/leandrocgsi/erudio-api-oauth2/)
-[![GitHub Release](https://img.shields.io/github/release/qubyte/rubidium.svg?maxAge=3600)](https://github.com/leandrocgsi/erudio-api-oauth2/releases/tag/1.0)
+[![GitHub Release](https://img.shields.io/github/release/qubyte/rubidium.svg?maxAge=3600)](https://github.com/leandrocgsi/erudio-api-oauth2/releases/latest)
 [![Maven Central](https://img.shields.io/maven-central/v/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect.svg?maxAge=3600)](http://search.maven.org/#search|ga|1|g%3A%22nz.net.ultraq.thymeleaf%22%20AND%20a%3A%22thymeleaf-layout-dialect%22)
 [![License](https://img.shields.io/github/license/ultraq/thymeleaf-layout-dialect.svg?maxAge=2592000)](https://github.com/ultraq/thymeleaf-layout-dialect/blob/master/LICENSE.txt)
 
