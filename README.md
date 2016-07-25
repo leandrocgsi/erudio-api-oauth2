@@ -32,7 +32,7 @@ The following Open Source projects are used in this sample app:
 
 * [RESTful](http://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html)
 * [HATEOAS](http://timelessrepo.com/haters-gonna-hateoas)
-* [Microservices Architecture](http://martinfowler.com/articles/microservices.html)
+* [Microservices Concepts](http://martinfowler.com/articles/microservices.html)
 * [SOA Concepts](http://www.ibm.com/developerworks/webservices/tutorials/ws-soa-ibmcertified/ws-soa-ibmcertified.html)
 
 # Em português
