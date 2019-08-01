@@ -56,6 +56,9 @@ The following Open Source projects are used in this sample app:
 
 * [Curso Básico de Grails](https://www.youtube.com/playlist?list=PL18bbNo7xuh_dvHiIjegSsbwRq9JPmZL2)
 
+*Se especialize*
+
+[<img src="https://github.com/leandrocgsi/SpringBootPlayground/blob/master/Images/banner_blog_udemy_course_sring_boot.jpg?raw=true">](https://www.udemy.com/restful-apis-do-0-a-nuvem-com-springboot-e-docker/?couponCode=GTHB_REPOS_SALE2019)
 
 # How to get this project
 
