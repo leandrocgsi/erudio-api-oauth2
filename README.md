@@ -1,7 +1,6 @@
 # Erudio API OAUTH2
 
 [![Build Status](https://travis-ci.org/leandrocgsi/erudio-api-oauth2.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-api-oauth2)
-[![Build Status](https://circleci.com/gh/leandrocgsi/erudio-api-oauth2.svg?&style=shield)](https://circleci.com/gh/leandrocgsi/erudio-api-oauth2/)
 [![GitHub Release](https://img.shields.io/badge/release-1.0-blue.svg?maxAge=3600)](https://github.com/leandrocgsi/erudio-api-oauth2/releases/latest)
 [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?maxAge=2592000)](https://github.com/leandrocgsi/erudio-api-oauth2/blob/master/LICENSE.txt)
 
